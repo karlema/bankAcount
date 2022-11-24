@@ -3,6 +3,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class User {
+    static Account myAccount;
+
+    public User() {}
     static void login(){
         List<Account> bankList = new ArrayList<>();
         Account account1 = new Account("1111", "이재원1", "1234", 0, "하나");
@@ -14,8 +17,6 @@ public class User {
         bankList.add(account2);
         bankList.add(account3);
         bankList.add(account4);
-
-
 
         System.out.println("로그인 진행 공간");
         Scanner sc = new Scanner(System.in);
@@ -35,6 +36,7 @@ public class User {
                     String pwd = sc.nextLine();
                     if(bankList.get(i).pwd.equals(pwd)) {
                         System.out.println("✨로그인 성공");
+                        User.myAccount = bankList.get(i);
                         isSuccess = true;
                     }else {
                         System.out.println("비밀번호를 다시 입력해주세요.");
@@ -45,9 +47,10 @@ public class User {
         }
 
         if(!isFindAccount) System.out.println("없는 계좌입니다.");
-
-
-
-
     }
+
+    void getMoney(){
+        System.out.println("✨"+ myAccount.name + "님의 남은 잔고는 " + myAccount.money +"원 입니다.");
+    }
+
 }

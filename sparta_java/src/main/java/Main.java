@@ -89,6 +89,12 @@ public class Main
                     System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
                 }else if(userSelect.equals("3")){
                     System.out.println("잔고확인 하겠습니다. 아래와 같이 입력해 주세요");
+                    try{
+                        new User().getMoney();
+                    }catch (NullPointerException e){
+                        System.out.println("잔고가 없습니다.");
+                    }
+
                 }
             }
         }
