@@ -6,19 +6,16 @@ public class Main
 {
     static boolean isExit = false;
     static boolean isUser = false;
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         System.out.println("사용자인지 은행직원인지 선택해주세요. 1. 은행직행, 2. 사용자");
         Scanner sel = new Scanner(System.in);
         String selectUser;
         selectUser = sel.nextLine();
 
-        if(selectUser.equals("1") || selectUser.equals("1."))
-        {
+        if(selectUser.equals("1") || selectUser.equals("1.")) {
             System.out.println("은행직원 입니다.");
             List<Account> bankList = new ArrayList<>();
-            while(!isExit)
-            {
+            while(!isExit) {
                 System.out.println("1. 계좌 등록");
                 System.out.println("2. 계좌 수정");
                 System.out.println("3. 계좌 삭제");
@@ -74,10 +71,26 @@ public class Main
 
             }
         }
-        else
-        {
-            System.out.println("사용자 입니다.");
+        else {
             //로그인
+            User.login();
+            while(!isExit){
+                System.out.println("------------------------------");
+                System.out.println("1. 입금");
+                System.out.println("2. 출금");
+                System.out.println("3. 잔고확인");
+                Scanner sc = new Scanner(System.in);
+                String userSelect;
+                userSelect = sel.nextLine();
+                if(userSelect.equals("1")){
+                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
+                    break;
+                }else if(userSelect.equals("2")){
+                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
+                }else if(userSelect.equals("3")){
+                    System.out.println("잔고확인 하겠습니다. 아래와 같이 입력해 주세요");
+                }
+            }
         }
 
 
