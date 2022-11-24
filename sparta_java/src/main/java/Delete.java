@@ -37,12 +37,13 @@ public class Delete implements AccountDelete{
                         break;
                     }
                 } else {
-                    System.out.println("비밀번호가 일치하지 않습니다.");
+                    System.out.println("\n✨ 비밀번호가 일치하지 않습니다.");
                 }
             }
-            else {
-                System.out.println("계좌번호가 존재하지 않습니다."); // ERROR
-            }
+//            else {
+//                System.out.println("\n✨ 계좌번호가 존재하지 않습니다."); // ERROR
+//            }
         }
     }
 }
+
