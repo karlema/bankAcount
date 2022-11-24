@@ -12,9 +12,9 @@ public class Main
         String selectUser;
         selectUser = sel.nextLine();
 
+        List<Account> bankList = new ArrayList<>();
         if(selectUser.equals("1") || selectUser.equals("1.")) {
             System.out.println("은행직원 입니다.");
-            List<Account> bankList = new ArrayList<>();
             while(!isExit) {
                 System.out.println("1. 계좌 등록");
                 System.out.println("2. 계좌 수정");
