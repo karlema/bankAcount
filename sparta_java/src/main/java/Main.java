@@ -72,15 +72,14 @@ public class Main
             }
         }
         else {
-            //로그인
-            boolean isLogin = false;
+            //사용자 부분
             User.login();
             while(!isExit){
                 System.out.println("------------------------------");
                 System.out.println("1. 입금");
                 System.out.println("2. 출금");
                 System.out.println("3. 잔고확인");
-                Scanner sc = new Scanner(System.in);
+
                 String userSelect;
                 userSelect = sel.nextLine();
                 if(userSelect.equals("1")){
