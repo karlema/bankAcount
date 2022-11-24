@@ -6,17 +6,17 @@ public class User {
     static Account myAccount;
 
     public User() {}
-    static void login(){
-        List<Account> bankList = new ArrayList<>();
-        Account account1 = new Account("1111", "이재원1", "1234", 0, "하나");
-        Account account2 = new Account("2222", "이재원2", "1234", 0, "국민");
-        Account account3 = new Account("3333", "이재원3", "1234", 0, "신한");
-        Account account4 = new Account("4444", "이재원4", "1234", 0, "농협");
-
-        bankList.add(account1);
-        bankList.add(account2);
-        bankList.add(account3);
-        bankList.add(account4);
+    static void login(List<Account> bankList){
+//        List<Account> bankList = new ArrayList<>();
+//        Account account1 = new Account("1111", "이재원1", "1234", 0, "하나");
+//        Account account2 = new Account("2222", "이재원2", "1234", 0, "국민");
+//        Account account3 = new Account("3333", "이재원3", "1234", 0, "신한");
+//        Account account4 = new Account("4444", "이재원4", "1234", 0, "농협");
+//
+//        bankList.add(account1);
+//        bankList.add(account2);
+//        bankList.add(account3);
+//        bankList.add(account4);
 
         System.out.println("로그인 진행 공간");
         Scanner sc = new Scanner(System.in);

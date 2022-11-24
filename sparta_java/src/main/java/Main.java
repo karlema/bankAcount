@@ -73,7 +73,7 @@ public class Main
         }
         else {
             //사용자 부분
-            User.login();
+            User.login(bankList);
             while(!isExit){
                 System.out.println("------------------------------");
                 System.out.println("1. 입금");
