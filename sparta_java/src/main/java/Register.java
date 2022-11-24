@@ -8,7 +8,8 @@ public class Register {
     public String pwd;
     public int money;
     public String bankName;
-    public void Register(List<Account> bankList)
+    static List<Account> bankList;
+    public void parceChar()
     {
         int cnt=0;
         int totla_cnt=0;
@@ -65,5 +66,10 @@ public class Register {
         Account ac = new Account(accountNumber,name,pwd,money,bankName);
         bankList.add(ac);
         System.out.println(" 계좌번호 : " + accountNumber + " 이름 : " + name + " 비밀번호 : "+ pwd+ " 입금금액 : " + money+ " 은행명 : " +bankName);
+    }
+
+    public Register(List<Account> bankList)
+    {
+        this.bankList = bankList;
     }
 }
