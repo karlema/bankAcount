@@ -46,12 +46,10 @@ public class Main
                 else if(select_num.equals("2") || selectUser.equals("2."))
                 { Revision revision = new Revision();
                     revision.update();
-                    System.out.println("계좌를 수정 하겠습니다. 아래와 같이 입력해 주세요");
                 }
                 else if(select_num.equals("3") || selectUser.equals("3."))
                 { Delete delete = new Delete();
                     delete.delete();
-                    System.out.println("계좌를 삭제 하겠습니다. 아래와 같이 입력해 주세요");
                 }
                 else if(select_num.equals("4") || selectUser.equals("4."))
                 {
