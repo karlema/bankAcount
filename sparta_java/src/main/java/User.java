@@ -20,33 +20,37 @@ public class User {
 
         System.out.println("로그인 진행 공간");
         Scanner sc = new Scanner(System.in);
-        System.out.print("✨계좌번호를 입력해주세요.\n→");
-        String accountNumber = sc.nextLine();
+
 
         boolean isFindAccount = false;
+        while (!isFindAccount){
+            System.out.print("✨계좌번호를 입력해주세요.\n→");
+            String accountNumber = sc.nextLine();
+            for(int i=0; i<bankList.size(); i++){
+                if(bankList.get(i).accountNumber.equals(accountNumber)){
+                    boolean isSuccess = false;
+                    isFindAccount = true;
+                    System.out.println("계좌를 찾았습니다");
+                    System.out.print("✨비밀번호를 입력해주세요.\n→");
 
-        for(int i=0; i<bankList.size(); i++){
-            if(bankList.get(i).accountNumber.equals(accountNumber)){
-                boolean isSuccess = false;
-                isFindAccount = true;
-                System.out.println("계좌를 찾았습니다");
-                System.out.print("✨비밀번호를 입력해주세요.\n→");
-
-                while(isSuccess != true){
-                    String pwd = sc.nextLine();
-                    if(bankList.get(i).pwd.equals(pwd)) {
-                        System.out.println("✨로그인 성공");
-                        User.myAccount = bankList.get(i);
-                        isSuccess = true;
-                    }else {
-                        System.out.println("비밀번호를 다시 입력해주세요.");
+                    while(isSuccess != true){
+                        String pwd = sc.nextLine();
+                        if(bankList.get(i).pwd.equals(pwd)) {
+                            System.out.println("✨로그인 성공");
+                            User.myAccount = bankList.get(i);
+                            isSuccess = true;
+                        }else {
+                            System.out.println("비밀번호를 다시 입력해주세요.");
+                        }
                     }
+                    return;
                 }
-                return;
             }
+
+            if(!isFindAccount) System.out.println("없는 계좌입니다.");
         }
 
-        if(!isFindAccount) System.out.println("없는 계좌입니다.");
+        return;
     }
 
     void getMoney(){
