@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class User {
     static void login(){
         List<Account> bankList = new ArrayList<>();
-        bankList.add("11111111111", "이재원", "1234", "")
-        String pwd, int money, String bankName)
+        Account account = new Account("11111111111", "이재원", "1234", 1000, "하나");
 
         System.out.println("로그인 진행 공간");
         Scanner sc = new Scanner(System.in);
