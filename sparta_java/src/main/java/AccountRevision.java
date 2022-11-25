@@ -1,4 +1,6 @@
+import java.util.List;
+
 public interface AccountRevision {
 
-    void update();
+    void update(List<Account> BankList);
 }
