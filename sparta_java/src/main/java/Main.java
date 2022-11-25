@@ -9,6 +9,7 @@ public class Main
     public static void main(String[] args)
     {
         System.out.println("사용자인지 은행직원인지 선택해주세요. 1. 은행직행, 2. 사용자");
+        System.out.println("테스트코드");
         Scanner sel = new Scanner(System.in);
         String selectUser;
         selectUser = sel.nextLine();
