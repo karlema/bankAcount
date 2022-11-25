@@ -94,27 +94,33 @@ public class Menu {
             //로그인
             User.login(bankList);
             while (!isExit) {
-                System.out.println("------------------------------");
-                System.out.println("1. 입금");
-                System.out.println("2. 출금");
-                System.out.println("3. 잔고확인");
-                System.out.println("4. 처음으로");
+                System.out.println("1 : 입금");
+                System.out.println("2 : 출금");
+                System.out.println("3 : 잔고확인");
+                System.out.println("4 : 거래내역");
+                System.out.println("5 : 종료");
 
-                String userSelect;
-                userSelect = sel.nextLine();
-                if (userSelect.equals("1")) {
-                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
-                    BalanceMoney balanceMoney = new BalanceMoney();
+                String selecteMenu;
+                selecteMenu = sel.nextLine();
+
+                BalanceMoney balanceMoney = new BalanceMoney();
+
+                if (selecteMenu.equals("1")) {
+//                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
                     balanceMoney.inMoney();
-                } else if (userSelect.equals("2")) {
-                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
-                } else if (userSelect.equals("3")) {
+                } else if (selecteMenu.equals("2")) {
+//                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
+                    balanceMoney.outMoney();
+                } else if (selecteMenu.equals("3")) {
                     try {
                         User.getMoney();
                     } catch (NullPointerException e) {
                         System.out.println("잔고가 없습니다.");
                     }
-                } else if (userSelect.equals("4")) {
+                } else if (selecteMenu.equals("4")) {
+                    System.out.println("임시 거래내역");
+                    break;
+                } else if (selecteMenu.equals("5")) {
                     break;
                 }
             }
