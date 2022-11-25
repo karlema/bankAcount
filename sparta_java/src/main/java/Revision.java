@@ -13,7 +13,6 @@ public class Revision{
 //        BankList.add(memo1);
 //        BankList.add(memo2);
 //        BankList.add(memo3);
-        System.out.println("계좌를 수정 하겠습니다. 아래와 같이 입력해 주세요");
         System.out.println("\n✨ 계좌번호를 입력해주세요");
 
         String num = sc.nextLine();
