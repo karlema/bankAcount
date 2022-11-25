@@ -85,9 +85,36 @@ public class Main {
 
                 }
             }
-        } else {
-            System.out.println("사용자 입니다.");
+
+        }
+        else
+        {
+
             //로그인
+            User.login(bankList);
+            while(!isExit){
+                System.out.println("------------------------------");
+                System.out.println("1. 입금");
+                System.out.println("2. 출금");
+                System.out.println("3. 잔고확인");
+
+                String userSelect;
+                userSelect = sel.nextLine();
+                if(userSelect.equals("1")){
+                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
+                    break;
+                }else if(userSelect.equals("2")){
+                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
+                }else if(userSelect.equals("3")){
+                    try{
+                        new User().getMoney();
+                    }catch (NullPointerException e){
+                        System.out.println("잔고가 없습니다.");
+                    }
+
+                }
+            }
+
         }
 
 
