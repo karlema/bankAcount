@@ -39,11 +39,15 @@ public class Menu {
                     case "2":
                     case "2.": {
                         System.out.println("계좌를 수정 하겠습니다. 아래와 같이 입력해 주세요");
+                        Revision revision = new Revision();
+                        revision.update(bankList);
                         break;
                     }
                     case "3":
                     case "3.": {
                         System.out.println("계좌를 삭제 하겠습니다. 아래와 같이 입력해 주세요");
+                        Delete delete = new Delete();
+                        delete.delete(bankList);
                         break;
                     }
                     case "4":
