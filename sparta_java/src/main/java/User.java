@@ -7,7 +7,7 @@ public class User {
 
     public User() {}
     static void login(List<Account> bankList){
-        System.out.println("테스트");
+        System.out.println("테스트풀리퀘스트");
 //        List<Account> bankList = new ArrayList<>();
 //        Account account1 = new Account("1111", "이재원1", "1234", 0, "하나");
 //        Account account2 = new Account("2222", "이재원2", "1234", 0, "국민");
