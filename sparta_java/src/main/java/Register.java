@@ -11,45 +11,44 @@ public class Register {
     static List<Account> bankList;
     public void parceChar()
     {
-        int cnt=0;
-        int totla_cnt=0;
+        int countComma=0;
+        int countTotal=0;
         int first =0;
         int flag =0;
         while(true)
         {
             if(CastString!=null)
             {
-                totla_cnt++;
+                countTotal++;
             }
 
-            if(cnt ==1 && flag ==0)
+            if(countComma ==1 && flag ==0)
             {
-                accountNumber = CastString.substring(first,totla_cnt-1);
+                accountNumber = CastString.substring(first,countTotal-1);
                 System.out.println(accountNumber);
-                first = totla_cnt;
+                first = countTotal;
                 flag =1;
             }
-            else if(cnt ==2 && flag ==0)
+            else if(countComma ==2 && flag ==0)
             {
-                name = CastString.substring(first,totla_cnt-1);
+                name = CastString.substring(first,countTotal-1);
                 System.out.println(name);
-                first = totla_cnt ;
+                first = countTotal ;
                 flag =1;
             }
-            else if(cnt ==3 && flag ==0)
+            else if(countComma ==3 && flag ==0)
             {
-                pwd = CastString.substring(first,totla_cnt-1);
+                pwd = CastString.substring(first,countTotal-1);
                 System.out.println(pwd);
-                first = totla_cnt;
+                first = countTotal;
                 flag =1;
             }
-            else if(cnt ==4 && flag ==0)
+            else if(countComma ==4 && flag ==0)
             {
                 // 콤마 앞
-                money = Integer.parseInt(CastString.substring(first,totla_cnt-1));
+                money = Integer.parseInt(CastString.substring(first,countTotal-1));
                 System.out.println(money);
-                first = totla_cnt;
-                flag =1;
+                first = countTotal;
 
                 // 콤마 뒤
                 bankName = CastString.substring(first,CastString.length());
@@ -57,9 +56,9 @@ public class Register {
                 break;
             }
 
-            if(CastString.toCharArray()[totla_cnt] == ',')
+            if(CastString.toCharArray()[countTotal] == ',')
             {
-                cnt++;
+                countComma++;
                 flag =0;
             }
         }
