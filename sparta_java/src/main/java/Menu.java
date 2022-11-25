@@ -12,6 +12,7 @@ public class Menu {
         if (selectUser.equals("1") || selectUser.equals("1.")) {
             System.out.println("은행직원 입니다.");
             while (!isExit) {
+                System.out.println("------------------------------");
                 System.out.println("1. 계좌 등록");
                 System.out.println("2. 계좌 수정");
                 System.out.println("3. 계좌 삭제");
