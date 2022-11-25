@@ -94,9 +94,7 @@ public class Menu {
             //로그인
             User.login(bankList);
 
-
-            boolean isBack = false;
-            isBack = Menu2.menu2(isExit, sel);
+            boolean isBack = Menu2.menu2(isExit, sel);
             while (isBack){
                 Menu2.menu2(isExit, sel);
             }

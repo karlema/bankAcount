@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu2 {
@@ -13,6 +14,8 @@ public class Menu2 {
             userSelect = sel.nextLine();
             if (userSelect.equals("1")) {
                 System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
+                BalanceMoney balanceMoney = new BalanceMoney();
+                balanceMoney.inMoney();
                 return true;
             } else if (userSelect.equals("2")) {
                 System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
@@ -28,7 +31,7 @@ public class Menu2 {
                 System.out.println("처음으로");
                 return false;
             }
-        }
+            }
         return false;
     }
 }
