@@ -88,9 +88,8 @@ public class Menu {
             return false;
         } else {
             //로그인
-            boolean isUser = false;
             User.login(bankList);
-            while (!isUser) {
+            while (!isExit) {
                 System.out.println("------------------------------");
                 System.out.println("1. 입금");
                 System.out.println("2. 출금");
