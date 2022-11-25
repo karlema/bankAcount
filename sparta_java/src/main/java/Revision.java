@@ -1,7 +1,7 @@
 import java.util.*;
 
-public class Revision implements AccountRevision{
-    @Override
+public class Revision{
+
     public void update(List<Account> BankList) {
 
         Scanner sc = new Scanner(System.in);
@@ -18,11 +18,11 @@ public class Revision implements AccountRevision{
 
         String num = sc.nextLine();
         for (int i = 0; i < BankList.size(); i++) {
-            if (num.equals(BankList.get(i).getAccountNumber())) {
+            if (num.equals(BankList.get(i).accountNumber)) {
                 System.out.println("\n✨ 계좌 비밀번호를 입력해주세요");
                 String pwd = sc.nextLine();
-                if (pwd.equals(BankList.get(i).getPwd())) {
-                    System.out.println(BankList.get(i).getName() + "님의 계좌 번호는 " + BankList.get(i).getAccountNumber() + "이고 비밀번호는 " + BankList.get(i).getPwd() + "입니다.");
+                if (pwd.equals(BankList.get(i).pwd)) {
+                    System.out.println(BankList.get(i).name+ "님의 계좌 번호는 " + BankList.get(i).accountNumber + "이고 비밀번호는 " + BankList.get(i).pwd + "입니다.");
                     System.out.println("계좌번호를 수정하시겠습니까? ---1번---");
                     System.out.println("고객명을 수정하시겠습니까? ---2번---");
                     System.out.println("계좌 비밀번호를 수정하시겠습니까? ---3번---");
@@ -32,20 +32,20 @@ public class Revision implements AccountRevision{
                     if(selectNum.equals("1")) {
                         System.out.println("\n✨ 변경하실 계좌번호를 입력해주세요.");
                         String updateAccount = sc.nextLine();
-                        BankList.set(i,new Account(updateAccount,BankList.get(i).getName(),BankList.get(i).getPwd(),BankList.get(i).getMoney(),BankList.get(i).getBankName()));
+                        BankList.set(i,new Account(updateAccount,BankList.get(i).name,BankList.get(i).pwd,BankList.get(i).money,BankList.get(i).bankName));
 
                         System.out.println("\n✨ 계좌번호가 변경되었습니다.");
                     }
                     if(selectNum.equals("2")) {
                         System.out.println("\n✨ 변경하실 고객명을 입력해주세요.");
                         String updateName = sc.nextLine();
-                        BankList.set(i,new Account(BankList.get(i).getAccountNumber(),updateName,BankList.get(i).getPwd(),BankList.get(i).getMoney(),BankList.get(i).getBankName()));
+                        BankList.set(i,new Account(BankList.get(i).accountNumber,updateName,BankList.get(i).pwd,BankList.get(i).money,BankList.get(i).bankName));
                         System.out.println("\n✨ 고객명이 변경되었습니다.");
                     }
                     if(selectNum.equals("3")) {
                         System.out.println("\n✨ 변경하실 비밀번호를 입력해주세요.");
                         String updatePwd = sc.nextLine();
-                        BankList.set(i,new Account(BankList.get(i).getAccountNumber(),BankList.get(i).getName(),updatePwd,BankList.get(i).getMoney(),BankList.get(i).getBankName()));
+                        BankList.set(i,new Account(BankList.get(i).accountNumber,BankList.get(i).name,updatePwd,BankList.get(i).money,BankList.get(i).bankName));
                         System.out.println("\n✨ 계좌 비밀번호가 변경되었습니다.");
                     }
                     else if(selectNum.equals("4")) {

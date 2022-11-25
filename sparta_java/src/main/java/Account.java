@@ -13,24 +13,4 @@ public class Account {
         this.money = money;
         this.bankName = bankName;
     }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public int getMoney() {
-        return money;
-    }
-
-    public String getBankName() {
-        return bankName;
-    }
 }

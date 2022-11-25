@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Delete implements AccountDelete{
+public class Delete{
 
-    @Override
+
     public void delete(List<Account> BankList) {
         Scanner sc = new Scanner(System.in);
 
@@ -20,11 +20,11 @@ public class Delete implements AccountDelete{
 
         String num = sc.nextLine();
         for (int i = 0; i < BankList.size(); i++) {
-            if (num.equals(BankList.get(i).getAccountNumber())) {
+            if (num.equals(BankList.get(i).accountNumber)) {
                 System.out.println("\n✨ 계좌 비밀번호를 입력해주세요");
                 String pwd = sc.nextLine();
-                if (pwd.equals(BankList.get(i).getPwd())) {
-                    System.out.println("\n✨ " + BankList.get(i).getName() + "님의 계좌 번호는 " + BankList.get(i).getAccountNumber() + "이고 잔고는 " + BankList.get(i).getMoney() + "원 입니다.");
+                if (pwd.equals(BankList.get(i).pwd)) {
+                    System.out.println("\n✨ " + BankList.get(i).name + "님의 계좌 번호는 " + BankList.get(i).accountNumber + "이고 잔고는 " + BankList.get(i).money + "원 입니다.");
                     System.out.println("\n✨ 계좌를 정말 삭제하시겠습니까? ---1번---");
                     System.out.println("\n✨ 메뉴로 돌아가시겠습니까? ---2번---");
 
