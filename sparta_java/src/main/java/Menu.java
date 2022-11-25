@@ -18,7 +18,8 @@ public class Menu {
                 System.out.println("4. 계좌번호 검색");
                 System.out.println("5. 계좌 전체조회");
                 System.out.println("6. 계좌 이체");
-                System.out.println("7. 종료");
+                System.out.println("7. 처음으로");
+                System.out.println("8. 종료");
                 Scanner sc = new Scanner(System.in);
                 String select_num;
                 select_num = sc.nextLine();
@@ -71,15 +72,13 @@ public class Menu {
                     }
                     case "7":
                     case "7.": {
-                        System.out.println("종료합니다");
-                        isExit = true;
-                        break;
+                        return true;
                     }
                     case "8":
                     case "8.": {
-                        System.out.println("처음으로");
-                        return true;
-//                        break;
+                        System.out.println("종료합니다");
+                        isExit = true;
+                        break;
                     }
                     default: {
                         System.out.println("숫자를 다시 확인해주세요.");
@@ -93,40 +92,32 @@ public class Menu {
         } else {
             //로그인
             User.login(bankList);
+            while (!isExit) {
+                System.out.println("------------------------------");
+                System.out.println("1. 입금");
+                System.out.println("2. 출금");
+                System.out.println("3. 잔고확인");
+                System.out.println("4. 처음으로");
 
-            boolean isBack = Menu2.menu2(isExit, sel);
-            while (isBack){
-                Menu2.menu2(isExit, sel);
+                String userSelect;
+                userSelect = sel.nextLine();
+                if (userSelect.equals("1")) {
+                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
+                    BalanceMoney balanceMoney = new BalanceMoney();
+                    balanceMoney.inMoney();
+                } else if (userSelect.equals("2")) {
+                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
+                } else if (userSelect.equals("3")) {
+                    try {
+                        User.getMoney();
+                    } catch (NullPointerException e) {
+                        System.out.println("잔고가 없습니다.");
+                    }
+                } else if (userSelect.equals("4")) {
+                    break;
+                }
             }
             return false;
-//            while (!isExit) {
-//                System.out.println("------------------------------");
-//                System.out.println("1. 입금");
-//                System.out.println("2. 출금");
-//                System.out.println("3. 잔고확인");
-//                System.out.println("4. 처음으로");
-//
-//                String userSelect;
-//                userSelect = sel.nextLine();
-//                if (userSelect.equals("1")) {
-//                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
-//                } else if (userSelect.equals("2")) {
-//                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
-//
-//                } else if (userSelect.equals("3")) {
-//                    try {
-//                        new User().getMoney();
-//
-//                    } catch (NullPointerException e) {
-//                        System.out.println("잔고가 없습니다.");
-//                    }
-//
-//                } else if (userSelect.equals("4")) {
-//                    System.out.println("처음으로");
-//                    return true;
-//                }
-//                return false;
-//            }
         }
     }
 }

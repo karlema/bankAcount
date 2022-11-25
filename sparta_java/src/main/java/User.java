@@ -41,7 +41,7 @@ public class User {
 
 
 
-    void getMoney(){
+    static void getMoney(){
         System.out.println("✨"+ myAccount.name + "님의 남은 잔고는 " + myAccount.money +"원 입니다.");
     }
 
