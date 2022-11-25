@@ -89,35 +89,42 @@ public class Menu {
         } else {
             //로그인
             User.login(bankList);
-            while (!isExit) {
-                System.out.println("------------------------------");
-                System.out.println("1. 입금");
-                System.out.println("2. 출금");
-                System.out.println("3. 잔고확인");
-                System.out.println("4. 처음으로");
 
-                String userSelect;
-                userSelect = sel.nextLine();
-                if (userSelect.equals("1")) {
-                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
-                } else if (userSelect.equals("2")) {
-                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
 
-                } else if (userSelect.equals("3")) {
-                    try {
-                        new User().getMoney();
-
-                    } catch (NullPointerException e) {
-                        System.out.println("잔고가 없습니다.");
-                    }
-
-                } else if (userSelect.equals("4")) {
-                    System.out.println("처음으로");
-                    return true;
-                }
-                return false;
+            boolean isBack = false;
+            isBack = Menu2.menu2(isExit, sel);
+            while (isBack){
+                Menu2.menu2(isExit, sel);
             }
             return false;
+//            while (!isExit) {
+//                System.out.println("------------------------------");
+//                System.out.println("1. 입금");
+//                System.out.println("2. 출금");
+//                System.out.println("3. 잔고확인");
+//                System.out.println("4. 처음으로");
+//
+//                String userSelect;
+//                userSelect = sel.nextLine();
+//                if (userSelect.equals("1")) {
+//                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
+//                } else if (userSelect.equals("2")) {
+//                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
+//
+//                } else if (userSelect.equals("3")) {
+//                    try {
+//                        new User().getMoney();
+//
+//                    } catch (NullPointerException e) {
+//                        System.out.println("잔고가 없습니다.");
+//                    }
+//
+//                } else if (userSelect.equals("4")) {
+//                    System.out.println("처음으로");
+//                    return true;
+//                }
+//                return false;
+//            }
         }
     }
 }
