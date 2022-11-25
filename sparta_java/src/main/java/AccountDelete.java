@@ -1,4 +1,6 @@
+import java.util.List;
+
 public interface AccountDelete {
 
-    void delete();
+    void delete(List<Account> BankList);
 }

@@ -12,6 +12,7 @@ public class Main
         Scanner sel = new Scanner(System.in);
         String selectUser;
         selectUser = sel.nextLine();
+        List<Account> BankList = new ArrayList<>();
 
         if(selectUser.equals("1") || selectUser.equals("1."))
         {
@@ -45,11 +46,12 @@ public class Main
                 }
                 else if(select_num.equals("2") || selectUser.equals("2."))
                 { Revision revision = new Revision();
-                    revision.update();
+                    revision.update(BankList);
+
                 }
                 else if(select_num.equals("3") || selectUser.equals("3."))
                 { Delete delete = new Delete();
-                    delete.delete();
+                    delete.delete(BankList);
                 }
                 else if(select_num.equals("4") || selectUser.equals("4."))
                 {
