@@ -58,11 +58,15 @@ public class Main
                     case "4": case "4.":
                     {
                         System.out.println("계좌번호 검색 하겠습니다. 아래와 같이 입력해 주세요");
+                        Search test = new Search();
+                        test.search(bankList);
                         break;
                     }
                     case "5": case "5.":
                     {
                         System.out.println("계좌 전체조회 하겠습니다. 아래와 같이 입력해 주세요");
+                        Search test = new Search();
+                        test.read(bankList);
                         break;
                     }
                     case "6": case "6.":
