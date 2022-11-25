@@ -6,16 +6,19 @@ public class Main
 {
     static boolean isExit = false;
     static boolean isUser = false;
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         System.out.println("사용자인지 은행직원인지 선택해주세요. 1. 은행직행, 2. 사용자");
         Scanner sel = new Scanner(System.in);
         String selectUser;
         selectUser = sel.nextLine();
 
-        List<Account> bankList = new ArrayList<>();
-        if(selectUser.equals("1") || selectUser.equals("1.")) {
+        if(selectUser.equals("1") || selectUser.equals("1."))
+        {
             System.out.println("은행직원 입니다.");
-            while(!isExit) {
+            List<Account> bankList = new ArrayList<>();
+            while(!isExit)
+            {
                 System.out.println("1. 계좌 등록");
                 System.out.println("2. 계좌 수정");
                 System.out.println("3. 계좌 삭제");
@@ -74,35 +77,18 @@ public class Main
                         break;
                     }
                     default:
+                    {
                         System.out.println("숫자를 다시 확인해주세요.");
-                }
-            }
-        }
-        else {
-            //사용자 부분
-            User.login(bankList);
-            while(!isExit){
-                System.out.println("------------------------------");
-                System.out.println("1. 입금");
-                System.out.println("2. 출금");
-                System.out.println("3. 잔고확인");
-
-                String userSelect;
-                userSelect = sel.nextLine();
-                if(userSelect.equals("1")){
-                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
-                    break;
-                }else if(userSelect.equals("2")){
-                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
-                }else if(userSelect.equals("3")){
-                    try{
-                        new User().getMoney();
-                    }catch (NullPointerException e){
-                        System.out.println("잔고가 없습니다.");
+                        break;
                     }
 
                 }
             }
+        }
+        else
+        {
+            System.out.println("사용자 입니다.");
+            //로그인
         }
 
 
