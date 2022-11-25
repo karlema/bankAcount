@@ -18,9 +18,11 @@ public class Search {
 
         System.out.println("계좌번호 혹은 소유자명으로 검색해주세요");
         String select = scanner.nextLine();
+        String confirm = select;
+
 
         for (int i = 0; i < bankList.size(); i++) {
-            if (bankList.get(i).accountNumber.equals(select)) {
+            if(bankList.get(i).accountNumber.contains(select)) {
                 System.out.println("--------------------------------");
                 System.out.println("계좌 번호 : " + bankList.get(i).getAccountNumber());
                 System.out.println("소유자 명 : " + bankList.get(i).getName());
@@ -28,7 +30,10 @@ public class Search {
                 System.out.println("--------------------------------");
                 System.out.println("");
             }
-            if (bankList.get(i).name.equals(select)) {
+        }
+
+        for (int i = 0; i < bankList.size(); i++) {
+            if(bankList.get(i).name.contains(select)) {
                 System.out.println("--------------------------------");
                 System.out.println("계좌 번호 : " + bankList.get(i).getAccountNumber());
                 System.out.println("소유자 명 : " + bankList.get(i).getName());
@@ -40,7 +45,6 @@ public class Search {
     }
 
     public void read(List<Account> bankList){
-
 
         System.out.println("계좌 번호와 소유자명을 출력합니다.\n");
         // 모두 출력
