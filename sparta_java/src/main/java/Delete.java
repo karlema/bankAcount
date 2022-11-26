@@ -9,18 +9,18 @@ public class Delete {
         Scanner sc = new Scanner(System.in);
 
 
-        boolean isFindAccount = false;
+        boolean isCheckAccount = false;
         System.out.println("\n✨ 계좌번호를 입력해주세요.");
-        while (!isFindAccount) {
+        while (!isCheckAccount) {
             String accountNumber = sc.nextLine();
             String patten = "^(\\d{3,6})-?(\\d{2,6})-?(\\d{6,9})$"; //"([0-9,\-]{3,6}\-[0-9,\-]{2,6}\-[0-9,\-])"
             boolean accountPatten = Pattern.matches(patten, accountNumber);
             for (int i = 0; i < bankList.size(); i++) {
                 if (bankList.get(i).accountNumber.equals(accountNumber) && accountPatten == true) {
-                    boolean isFindPwd = false;
+                    boolean isCheckPwd = false;
                     System.out.println("\n✨ 비밀번호를 입력해주세요.");
 
-                    while (!isFindPwd) {
+                    while (!isCheckPwd) {
                         String pwd = sc.nextLine();
                         if (bankList.get(i).pwd.equals(pwd)) {
                             System.out.println("\n✨ " + bankList.get(i).name + "님의 계좌 번호는 " + bankList.get(i).accountNumber + "이고 비밀번호는 " + bankList.get(i).pwd + "입니다.");
@@ -42,7 +42,7 @@ public class Delete {
                     return;
                 }
             }
-            if (!isFindAccount) {
+            if (!isCheckAccount) {
                 System.out.println("\n✨ 계좌번호를 다시 입력해주세요.");
             }
         }
