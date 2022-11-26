@@ -13,7 +13,7 @@ public class Revision {
         System.out.println("\n✨ 계좌번호를 입력해주세요.");
         while (!isFindAccount) {
             String accountNumber = sc.nextLine();
-            String patten = "^(\\d{9})-?(\\d{9})-?(\\d{9})$";
+            String patten = "^(\\d{3,6})-?(\\d{2,6})-?(\\d{6,9})$";
             boolean accountPatten = Pattern.matches(patten, accountNumber);
             for (int i = 0; i < bankList.size(); i++) {
                 if (bankList.get(i).accountNumber.equals(accountNumber) && accountPatten == true) {
