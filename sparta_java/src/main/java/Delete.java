@@ -27,15 +27,25 @@ public class Delete {
                             System.out.println("\n✨ 계좌를 정말 삭제하시겠습니까? ---1번---");
                             System.out.println("\n✨ 메뉴로 돌아가시겠습니까? ---2번---");
 
-                            String selectNum = sc.nextLine();
-                            if (selectNum.equals("1")) {
-                                bankList.remove(i);
-                                System.out.println("\n✨ 계좌가 삭제되었습니다.");
-                                break;
-                            } else if (selectNum.equals("2")) {
-                                break;
+//                            String selectNum = sc.nextLine();
+                            int selectNum = sc.nextInt();
+                            switch (selectNum) {
+                                case 1:
+                                    bankList.remove(i);
+                                    System.out.println("\n✨ 계좌가 삭제되었습니다.");
+                                    break;
+                                case 2:
+                                    break;
                             }
-                        } else {
+                            return;
+//                            if (selectNum.equals("1")) {
+//                                bankList.remove(i);
+//                                System.out.println("\n✨ 계좌가 삭제되었습니다.");
+//                                break;
+//                            } else if (selectNum.equals("2")) {
+//                                break;
+//                            }
+                        } if(!isCheckPwd) {
                             System.out.println("\n✨ 비밀번호를 다시 입력해주세요.");
                         }
                     }
