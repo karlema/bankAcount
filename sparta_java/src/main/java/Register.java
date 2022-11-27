@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Register {
     public String CastString;
@@ -27,6 +28,13 @@ public class Register {
                 if(countComma ==1 && flag ==0)
                 {
                     accountNumber = CastString.substring(first,countTotal-1);
+                    String pattern = "^(\\d{3,6})-?(\\d{2,6})-?(\\d{6,9})$";
+                    boolean accountPattern = Pattern.matches(pattern,accountNumber);
+                    if(!accountPattern) {
+                        System.out.println("계좌번호 형식이 맞지 않습니다.");
+                        System.out.println("(3~6자리 숫자)-(2~6자리 숫자)-(6~9자리 숫자) 형식으로 입력해주세요");
+                        return;
+                    }
                     int count=0;
                     for(Account acnt: bankList)
                     {
