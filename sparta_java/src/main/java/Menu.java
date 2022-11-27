@@ -28,7 +28,7 @@ public class Menu {
                     case "1":
                     case "1.": {
                         System.out.println("계좌를 등록 하겠습니다. 아래와 같이 입력해 주세요");
-                        System.out.println("계좌번호,이름,비밀번호,입금금액,은행명 순으로 적어주세요");
+                        System.out.println("계좌번호,이름,비밀번호,입금금액,은행명,한도계좌여부(1 or 0) 순으로 적어주세요");
                         Scanner sc2 = new Scanner(System.in);
                         Register reg = new Register();
                         reg.CastString = sc2.nextLine();

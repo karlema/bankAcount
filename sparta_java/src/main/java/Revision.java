@@ -45,13 +45,13 @@ public class Revision {
                                 case "1" :
                                     System.out.println("\n✨ 변경하실 고객명을 입력해주세요.");
                                     String updateName = sc.nextLine();
-                                    bankList.set(i, new Account(bankList.get(i).accountNumber, updateName, bankList.get(i).pwd, bankList.get(i).money, bankList.get(i).bankName));
+                                    bankList.set(i, new Account(bankList.get(i).accountNumber, updateName, bankList.get(i).pwd, bankList.get(i).money, bankList.get(i).bankName, bankList.get(i).limit));
                                     System.out.println("\n✨ 고객명이 변경되었습니다.");
                                     break;
                                 case "2" :
                                     System.out.println("\n✨ 변경하실 비밀번호를 입력해주세요.");
                                     String updatePwd = sc.nextLine();
-                                    bankList.set(i, new Account(bankList.get(i).accountNumber, bankList.get(i).name, updatePwd, bankList.get(i).money, bankList.get(i).bankName));
+                                    bankList.set(i, new Account(bankList.get(i).accountNumber, bankList.get(i).name, updatePwd, bankList.get(i).money, bankList.get(i).bankName, bankList.get(i).limit));
                                     System.out.println("\n✨ 계좌 비밀번호가 변경되었습니다.");
                                     break;
                                 case "3" :
