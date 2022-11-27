@@ -12,6 +12,8 @@ public class Register {
 
     public boolean limit;
 
+    public String prefix = "356-1100-";
+
     public void parceChar(List<Account> bankList) {
         int countComma = 0;
         int countTotal = 0;
@@ -25,21 +27,29 @@ public class Register {
                 }
 
                 if (countComma == 1 && flag == 0) {
-                    accountNumber = CastString.substring(first, countTotal - 1);
-                    String pattern = "^(\\d{3,6})-?(\\d{2,6})-?(\\d{6,9})$";
-                    boolean accountPattern = Pattern.matches(pattern, accountNumber);
-                    if (!accountPattern) {
-                        System.out.println("계좌번호 형식이 맞지 않습니다.");
-                        System.out.println("(3~6자리 숫자)-(2~6자리 숫자)-(6~9자리 숫자) 형식으로 입력해주세요");
-                        return;
-                    }
-                    int count = 0;
-                    for (Account acnt : bankList) {
-                        if (accountNumber.equals(bankList.get(count).accountNumber)) {
-                            System.out.println("동일한 계좌번호가 있습니다. 처음 메뉴로 돌아가겠습니다.");
+                    if (CastString.toCharArray()[first] == '1') {
+                        String tempaccountNumber = "";
+                        for (int i = 0; i < 6; i++) {
+                            tempaccountNumber += String.valueOf((int)(Math.random() * 10));
+                        }
+                        accountNumber = prefix + tempaccountNumber;
+                    } else {
+                        accountNumber = CastString.substring(first, countTotal - 1);
+                        String pattern = "^(\\d{3,6})-?(\\d{2,6})-?(\\d{6,9})$";
+                        boolean accountPattern = Pattern.matches(pattern, accountNumber);
+                        if (!accountPattern) {
+                            System.out.println("계좌번호 형식이 맞지 않습니다.");
+                            System.out.println("(3~6자리 숫자)-(2~6자리 숫자)-(6~9자리 숫자) 형식으로 입력해주세요");
                             return;
                         }
-                        count++;
+                        int count = 0;
+                        for (Account acnt : bankList) {
+                            if (accountNumber.equals(bankList.get(count).accountNumber)) {
+                                System.out.println("동일한 계좌번호가 있습니다. 처음 메뉴로 돌아가겠습니다.");
+                                return;
+                            }
+                            count++;
+                        }
                     }
 
                     System.out.println(accountNumber);
