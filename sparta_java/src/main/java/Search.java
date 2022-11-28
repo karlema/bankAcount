@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Search {
 
-    public void test(List<Account> bankList){
-//        System.out.println(bankList);
-        for (int i = 0; i <bankList.size() ; i++) {
-            System.out.println(bankList.get(i).accountNumber);
-            System.out.println(bankList.get(i).name);
-            System.out.println(bankList.get(i).money);
-        }
-    }
+    //    public void test(List<Account> bankList){
+////        System.out.println(bankList);
+//        for (int i = 0; i <bankList.size() ; i++) {
+//            System.out.println(bankList.get(i).accountNumber);
+//            System.out.println(bankList.get(i).name);
+//            System.out.println(bankList.get(i).money);
+//        }
+//    }
     public void search(List<Account> bankList) {
 
         Scanner scanner = new Scanner(System.in);
