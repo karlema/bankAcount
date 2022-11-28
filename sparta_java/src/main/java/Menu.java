@@ -92,15 +92,10 @@ public class Menu {
             return false;
         } else {
             //로그인
-<<<<<<< HEAD
-            User.login(bankList);
-
-            BalanceMoney balanceMoney = new BalanceMoney();
-
-=======
             User user = new User();
             user.login(bankList);
->>>>>>> main
+            BalanceMoney balanceMoney = new BalanceMoney(user);
+
             while (!isExit) {
                 System.out.println("해당하는 메뉴의 숫자를 입력해주세요.");
                 System.out.println("1 : 입금");
@@ -109,21 +104,20 @@ public class Menu {
                 System.out.println("4 : 거래내역 조회");
                 System.out.println("5 : 종료");
 
-<<<<<<< HEAD
                 System.out.print("> ");
                 String selectMenu;
                 selectMenu = sel.nextLine();
 
                 switch (selectMenu) {
                     case "1":
-                        balanceMoney.inMoney();
+                        balanceMoney.inMoney(user);
                         break;
                     case "2":
-                        balanceMoney.outMoney();
+                        balanceMoney.outMoney(user);
                         break;
                     case "3":
                         try {
-                            User.getMoney();
+                            user.getMoney();
                         } catch (NullPointerException e) {
                             System.out.println("잔고가 없습니다.\n");
                         }
@@ -138,31 +132,7 @@ public class Menu {
                     default:
                         System.out.println("숫자를 다시 입력해주세요.\n");
                         break;
-=======
-                String selecteMenu;
-                selecteMenu = sel.nextLine();
 
-                BalanceMoney balanceMoney = new BalanceMoney(user);
-
-                if (selecteMenu.equals("1")) {
-//                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
-                    balanceMoney.inMoney(user);
-                } else if (selecteMenu.equals("2")) {
-//                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
-                    balanceMoney.outMoney(user);
-                } else if (selecteMenu.equals("3")) {
-                    try {
-                        user.getMoney();
-                    } catch (NullPointerException e) {
-                        System.out.println("잔고가 없습니다.");
-                    }
-                } else if (selecteMenu.equals("4")) {
-                    balanceMoney.dealHistories();
-                    System.out.println("임시 거래내역");
-                    break;
-                } else if (selecteMenu.equals("5")) {
-                    break;
->>>>>>> main
                 }
 //                System.out.println("1 : 입금");
 //                System.out.println("2 : 출금");

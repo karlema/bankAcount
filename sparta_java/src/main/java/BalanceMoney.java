@@ -10,23 +10,14 @@ public class BalanceMoney {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss");
     //    String dealDateTime = formatter.format(LocalDateTime.now());
     String dealStatus;
-    List<History> dealHistory;
+    List<String> dealHistory;
 
-<<<<<<< HEAD
-    public BalanceMoney() {
+    public BalanceMoney(User user) {
         sc = new Scanner(System.in);
-        money = User.getMyAccount().money;
+        money = user.getMyAccount().money;
 //        formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss");
 //        dealDateTime = formatter.format(LocalDateTime.now());
         dealHistory = new ArrayList<>();
-=======
-    public BalanceMoney(User user) {
-        this.sc = new Scanner(System.in);
-        this.money = user.getMyAccount().money;
-        this.formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss");
-        this.dealDateTime = this.formatter.format(LocalDateTime.now());
-        this.dealHistory = new ArrayList<>();
->>>>>>> main
     }
 
     void inMoney(User user) {
@@ -37,10 +28,9 @@ public class BalanceMoney {
 
         System.out.println("\n========== 입금 진행 중입니다. ==========\n");
 
-<<<<<<< HEAD
         money += inMoney + (int)((double)inMoney * 0.001);
-        User.setMyAccountMoney(this.money);
-        money = User.getMyAccount().money;
+        user.setMyAccountMoney(this.money);
+        money = user.getMyAccount().money;
         String dealDateTime = formatter.format(LocalDateTime.now());
 
         dealHistory.add("거래 일자 및 시간 : " + dealDateTime);
@@ -49,23 +39,6 @@ public class BalanceMoney {
         dealHistory.add("거래 금액 : " + inMoney + "원");
         dealHistory.add("은행명 : " + "KB");
 
-=======
-        this.money += inMoney + (int)((double)inMoney * 0.001);
-        user.setMyAccountMoney(this.money);
-        this.money = user.getMyAccount().money;
-//        [ {dealDateTime, "123-456-789" }, {dealDateTime, "123-456-789" }, {dealDateTime, "123-456-789" }]
-        History history = new History(dealDateTime, "123-456-789");
-        dealHistory.add(history);
-//        dealHistory.add("거래 일자 및 시간 : " + dealDateTime);
-//        dealHistory.add("계좌 번호 : " + "123-456-789");
-//        dealHistory.add("거래 종류 : " + dealStatus);
-//        dealHistory.add("거래 금액 : " + inMoney + "원");
-//        dealHistory.add("은행명 : " + "KB");
-        for (int i = 0; i <= dealHistory.size() - 1; i++) { // 한 건씩 추출
-            System.out.println(dealHistory.get(i).dealDateTime);
-            System.out.println(dealHistory.get(i).accountNumber);
-        }
->>>>>>> main
         System.out.println("---------- 적용 이율은 0.1%입니다. ----------");
         System.out.println("- " + inMoney + "원이 입금되었습니다.");
         System.out.println("- 현재 잔액은 " + money + "원입니다.");
@@ -89,20 +62,15 @@ public class BalanceMoney {
             return;
         }
 
-<<<<<<< HEAD
-        User.setMyAccountMoney(money);
-        money = User.getMyAccount().money;
+        user.setMyAccountMoney(money);
+        money = user.getMyAccount().money;
         String dealDateTime = formatter.format(LocalDateTime.now());
-=======
-        user.setMyAccountMoney(this.money);
-        this.money = user.getMyAccount().money;
->>>>>>> main
 
-//        dealHistory.add("거래 일자 및 시간 : " + dealDateTime);
-//        dealHistory.add("계좌 번호 : " + "123-456-789");
-//        dealHistory.add("거래 종류 : " + dealStatus);
-//        dealHistory.add("거래 금액 : " + outMoney + "원");
-//        dealHistory.add("은행명 : " + "KB");
+        dealHistory.add("거래 일자 및 시간 : " + dealDateTime);
+        dealHistory.add("계좌 번호 : " + "123-456-789");
+        dealHistory.add("거래 종류 : " + dealStatus);
+        dealHistory.add("거래 금액 : " + outMoney + "원");
+        dealHistory.add("은행명 : " + "KB");
 
         System.out.println("---------- 수수료 500원이 차감됩니다. ----------");
         System.out.println("- " + outMoney + "원이 출금되었습니다.");
@@ -111,18 +79,12 @@ public class BalanceMoney {
     }
 
     void dealHistories() {  // 거래 내역 목록
-<<<<<<< HEAD
         System.out.println("----------------------------------------");
-=======
-        System.out.println("거래목록 시작");
->>>>>>> main
         for (int i = 0; i <= dealHistory.size() - 1; i++) { // 한 건씩 추출
-                System.out.println(dealHistory.get(i).dealDateTime);
-                System.out.println(dealHistory.get(i).accountNumber);
-//            if ((i + 1) % 5 == 0) {
-//                System.out.println("----------------------------------------");
-//            }
+            System.out.println(dealHistory.get(i));
+            if ((i + 1) % 5 == 0) {
+                System.out.println("----------------------------------------");
+            }
         }
-        System.out.println("거래목록 끝");
     }
 }
