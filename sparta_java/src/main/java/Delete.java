@@ -27,8 +27,8 @@ public class Delete {
                         if (bankList.get(i).pwd.equals(pwd)) {
                             System.out.println("✨ " + bankList.get(i).name + "님의 계좌 번호는 " + bankList.get(i).accountNumber + ", 비밀번호는 " + bankList.get(i).pwd + "입니다.");
                             System.out.println("----------------------------------------");
-                            System.out.println("✨ 삭제하시려면 숫자 1을");
-                            System.out.print("✨ 취소하시려면 숫자 2를 입력해주세요.\n→ ");
+                            System.out.println("✨ 1. 삭제");
+                            System.out.print("✨ 2. 취소");
 
                             int selectNum = sc.nextInt();
                             switch (selectNum) {

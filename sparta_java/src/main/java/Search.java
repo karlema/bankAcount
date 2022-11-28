@@ -16,7 +16,7 @@ public class Search {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("✨ 계좌번호 또는 고객명으로 검색하실 수 있습니다.\n→ ");
+        System.out.print("✨ 계좌번호 또는 고객명을 입력해주세요.\n→ ");
         String select = scanner.nextLine();
         String confirm = select;
 
@@ -24,10 +24,14 @@ public class Search {
         for (int i = 0; i < bankList.size(); i++) {
             if(bankList.get(i).accountNumber.contains(select)) {
                 System.out.println("----------------------------------------");
+                if(bankList.get(i).limit()){
+                    System.out.println("한도계좌");
+                }else{
+                    System.out.println("일반계좌");
+                }
                 System.out.println("계좌번호 : " + bankList.get(i).getAccountNumber());
                 System.out.println("고객명 : " + bankList.get(i).getName());
                 System.out.println("잔고 : " + bankList.get(i).getMoney());
-                System.out.println("한도계좌 : " + bankList.get(i).limit());
                 System.out.println("----------------------------------------\n");
             }
         }
@@ -35,10 +39,14 @@ public class Search {
         for (int i = 0; i < bankList.size(); i++) {
             if(bankList.get(i).name.contains(select)) {
                 System.out.println("--------------------------------");
+                if(bankList.get(i).limit()){
+                    System.out.println("한도계좌");
+                }else{
+                    System.out.println("일반계좌");
+                }
                 System.out.println("계좌번호 : " + bankList.get(i).getAccountNumber());
                 System.out.println("고객명 : " + bankList.get(i).getName());
                 System.out.println("잔고 : " + bankList.get(i).getMoney());
-                System.out.println("한도계좌 : " + bankList.get(i).limit());
                 System.out.println("--------------------------------\n");
             }
         }
@@ -50,10 +58,14 @@ public class Search {
         // 모두 출력
         for (int i = 0; i < bankList.size(); i++) {
             System.out.println("---------- " + (i + 1) + "번" + " ----------");
+            if(bankList.get(i).limit()){
+                System.out.println("한도계좌");
+            }else{
+                System.out.println("일반계좌");
+            }
             System.out.println("계좌번호 : " + bankList.get(i).getAccountNumber());
             System.out.println("고객명 : " + bankList.get(i).getName());
             System.out.println("잔고 : " + bankList.get(i).getMoney());
-            System.out.println("한도계좌 : " + bankList.get(i).limit());
         }
         System.out.println("---------- 출력 완료 ----------\n");
     }

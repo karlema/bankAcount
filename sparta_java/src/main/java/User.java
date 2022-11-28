@@ -57,7 +57,7 @@ public class User {
             for (int i = 0; i < bankList.size(); i++) {
                 if (bankList.get(i).accountNumber.equals(accountNumber) && bankList.get(i).bankName.equals(bankName)) {
 
-                    System.out.print("✨ 보내실 금액 입력해주세요.\n→ ");
+                    System.out.print("✨ 보내실 금액을 입력해주세요.\n→ ");
                     String transferMoney = sc.nextLine();
 
                     if (myAccount.limit && Integer.parseInt(transferMoney) > 300000) {
