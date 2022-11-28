@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
     static boolean menu(boolean isExit, List<Account> bankList) {
-        System.out.println("사용자인지 은행직원인지 선택해주세요. 1. 은행직행, 2. 사용자");
+        System.out.println("사용자인지 은행직원인지 선택해주세요. 1. 은행직원, 2. 사용자");
         Scanner sel = new Scanner(System.in);
         String selectUser;
         selectUser = sel.nextLine();
@@ -92,37 +92,76 @@ public class Menu {
         } else {
             //로그인
             User.login(bankList);
+
+            BalanceMoney balanceMoney = new BalanceMoney();
+
             while (!isExit) {
+                System.out.println("해당하는 메뉴의 숫자를 입력해주세요.");
                 System.out.println("1 : 입금");
                 System.out.println("2 : 출금");
-                System.out.println("3 : 잔고확인");
-                System.out.println("4 : 거래내역");
+                System.out.println("3 : 잔고 확인");
+                System.out.println("4 : 거래내역 조회");
                 System.out.println("5 : 종료");
 
-                String selecteMenu;
-                selecteMenu = sel.nextLine();
+                System.out.print("> ");
+                String selectMenu;
+                selectMenu = sel.nextLine();
 
-                BalanceMoney balanceMoney = new BalanceMoney();
-
-                if (selecteMenu.equals("1")) {
-//                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
-                    balanceMoney.inMoney();
-                } else if (selecteMenu.equals("2")) {
-//                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
-                    balanceMoney.outMoney();
-                } else if (selecteMenu.equals("3")) {
-                    try {
-                        User.getMoney();
-                    } catch (NullPointerException e) {
-                        System.out.println("잔고가 없습니다.");
-                    }
-                } else if (selecteMenu.equals("4")) {
-                    balanceMoney.dealHistories();
-                    System.out.println("임시 거래내역");
-                    break;
-                } else if (selecteMenu.equals("5")) {
-                    break;
+                switch (selectMenu) {
+                    case "1":
+                        balanceMoney.inMoney();
+                        break;
+                    case "2":
+                        balanceMoney.outMoney();
+                        break;
+                    case "3":
+                        try {
+                            User.getMoney();
+                        } catch (NullPointerException e) {
+                            System.out.println("잔고가 없습니다.\n");
+                        }
+                        break;
+                    case "4":
+                        balanceMoney.dealHistories();
+                        break;
+                    case "5":
+                        System.out.println("이용해주셔서 감사합니다.");
+                        isExit = true;
+                        break;
+                    default:
+                        System.out.println("숫자를 다시 입력해주세요.\n");
+                        break;
                 }
+//                System.out.println("1 : 입금");
+//                System.out.println("2 : 출금");
+//                System.out.println("3 : 잔고확인");
+//                System.out.println("4 : 거래내역");
+//                System.out.println("5 : 종료");
+//
+//                String selecteMenu;
+//                selecteMenu = sel.nextLine();
+//
+//                BalanceMoney balanceMoney = new BalanceMoney();
+//
+//                if (selecteMenu.equals("1")) {
+////                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
+//                    balanceMoney.inMoney();
+//                } else if (selecteMenu.equals("2")) {
+////                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
+//                    balanceMoney.outMoney();
+//                } else if (selecteMenu.equals("3")) {
+//                    try {
+//                        User.getMoney();
+//                    } catch (NullPointerException e) {
+//                        System.out.println("잔고가 없습니다.");
+//                    }
+//                } else if (selecteMenu.equals("4")) {
+//                    balanceMoney.dealHistories();
+//                    System.out.println("임시 거래내역");
+//                    break;
+//                } else if (selecteMenu.equals("5")) {
+//                    break;
+//                }
             }
             return false;
         }
