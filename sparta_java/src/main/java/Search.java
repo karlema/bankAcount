@@ -20,36 +20,41 @@ public class Search {
         String select = scanner.nextLine();
         String confirm = select;
 
-
+        boolean isFind = false;
         for (int i = 0; i < bankList.size(); i++) {
             if(bankList.get(i).accountNumber.contains(select)) {
+                isFind = true;
                 System.out.println("----------------------------------------");
                 if(bankList.get(i).limit()){
                     System.out.println("한도계좌");
                 }else{
                     System.out.println("일반계좌");
                 }
+                System.out.println("은행 : " + bankList.get(i).bankName);
                 System.out.println("계좌번호 : " + bankList.get(i).getAccountNumber());
                 System.out.println("고객명 : " + bankList.get(i).getName());
-                System.out.println("잔고 : " + bankList.get(i).getMoney());
+                System.out.println("잔고 : " + bankList.get(i).getMoney() + "원");
                 System.out.println("----------------------------------------\n");
             }
         }
 
         for (int i = 0; i < bankList.size(); i++) {
             if(bankList.get(i).name.contains(select)) {
+                isFind = true;
                 System.out.println("--------------------------------");
                 if(bankList.get(i).limit()){
                     System.out.println("한도계좌");
                 }else{
                     System.out.println("일반계좌");
                 }
+                System.out.println("은행 : " + bankList.get(i).bankName);
                 System.out.println("계좌번호 : " + bankList.get(i).getAccountNumber());
                 System.out.println("고객명 : " + bankList.get(i).getName());
-                System.out.println("잔고 : " + bankList.get(i).getMoney());
+                System.out.println("잔고 : " + bankList.get(i).getMoney() + "원");
                 System.out.println("--------------------------------\n");
             }
         }
+        if(!isFind) System.out.println("계좌를 찾을 수 없습니다.");
     }
 
     public void read(List<Account> bankList){
@@ -63,9 +68,10 @@ public class Search {
             }else{
                 System.out.println("일반계좌");
             }
+            System.out.println("은행 : " + bankList.get(i).bankName);
             System.out.println("계좌번호 : " + bankList.get(i).getAccountNumber());
             System.out.println("고객명 : " + bankList.get(i).getName());
-            System.out.println("잔고 : " + bankList.get(i).getMoney());
+            System.out.println("잔고 : " + bankList.get(i).getMoney() + "원");
         }
         System.out.println("---------- 출력 완료 ----------\n");
     }

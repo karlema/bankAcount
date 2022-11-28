@@ -18,7 +18,7 @@ public class Menu {
                 System.out.println("3. 계좌 삭제");
                 System.out.println("4. 계좌 검색");
                 System.out.println("5. 계좌 조회");
-                System.out.println("6. 사용자 유형 선택 메뉴");
+                System.out.println("6. 은행직원/고객 전환");
                 System.out.println("7. 종료하기");
                 System.out.print("→ ");
                 Scanner sc = new Scanner(System.in);
@@ -97,13 +97,13 @@ public class Menu {
             BalanceMoney balanceMoney = new BalanceMoney(user);
 
             while (!isExit) {
-                System.out.println("-------------------사용자 메뉴-------------------");
+                System.out.println("-------------------고객 메뉴-------------------");
                 System.out.println("1 : 입금");
                 System.out.println("2 : 출금");
                 System.out.println("3 : 잔액 조회");
                 System.out.println("4 : 거래내역 조회");
                 System.out.println("5 : 송금");
-                System.out.println("6 : 종료");
+                System.out.println("6 : 은행직원/고객 전환");
                 System.out.print("→ ");
 
                 String selectMenu;

@@ -54,8 +54,8 @@ public class BalanceMoney {
 
         money -= outMoney + 500;
 
-        if (money <= 0) {
-            System.out.println("✨ 잔액이 부족합니다.\n");
+        if (money < 0) {
+            System.out.println("잔액이 부족합니다.\n");
             return;
         }
 

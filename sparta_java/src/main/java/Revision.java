@@ -23,16 +23,16 @@ public class Revision {
                     while (!isCheckPwd) {
                         String pwd = sc.nextLine();
                         if (bankList.get(i).pwd.equals(pwd)) {
-                            System.out.println("\n✨ " + bankList.get(i).name + "님의 계좌 번호는 " + bankList.get(i).accountNumber + ", " + bankList.get(i).pwd + " 입니다.");
-                            System.out.println("0. 일반/한도 계좌 변경 ");
-                            System.out.println("1. 고객명 수정");
-                            System.out.println("2. 비밀번호 수정");
-                            System.out.println("3. 메뉴로 돌아가기");
+                            System.out.println("\n✨ " + bankList.get(i).name + "님의 계좌 번호는 " + bankList.get(i).accountNumber + ", 비밀번호는" + bankList.get(i).pwd + " 입니다.");
+                            System.out.println("1. 일반/한도 계좌 변경 ");
+                            System.out.println("2. 고객명 수정");
+                            System.out.println("3. 비밀번호 수정");
+                            System.out.println("4. 메뉴로 돌아가기");
                             System.out.print("→ ");
 
                             String selectNum = sc.nextLine();
                             switch (selectNum) {
-                                case "0" :
+                                case "1" :
                                 {
                                     if(bankList.get(i).limit == true) {
                                         bankList.set(i, new Account(bankList.get(i).accountNumber, bankList.get(i).name, bankList.get(i).pwd, bankList.get(i).money, bankList.get(i).bankName, false));
@@ -45,19 +45,19 @@ public class Revision {
                                     break;
 
                                 }
-                                case "1" :
+                                case "2" :
                                     System.out.print("\n✨ 변경하실 이름을 입력해주세요.\n→ ");
                                     String updateName = sc.nextLine();
                                     bankList.set(i, new Account(bankList.get(i).accountNumber, updateName, bankList.get(i).pwd, bankList.get(i).money, bankList.get(i).bankName, bankList.get(i).limit));
                                     System.out.println("\n✨ 고객명이 변경되었습니다.");
                                     break;
-                                case "2" :
+                                case "3" :
                                     System.out.print("\n✨ 새로운 비밀번호를 입력해주세요.\n→ ");
                                     String updatePwd = sc.nextLine();
                                     bankList.set(i, new Account(bankList.get(i).accountNumber, bankList.get(i).name, updatePwd, bankList.get(i).money, bankList.get(i).bankName, bankList.get(i).limit));
                                     System.out.println("\n✨ 비밀번호가 변경되었습니다.");
                                     break;
-                                case "3" :
+                                case "4" :
                                     break;
                             }
                             return;

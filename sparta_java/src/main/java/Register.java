@@ -115,9 +115,9 @@ public class Register {
         Account ac = new Account(accountNumber, name, pwd, money, bankName, limit);
         bankList.add(ac);
         if (!limit) {
-            System.out.println("✨ 계좌번호 : " + accountNumber + " 이름 : " + name + " 비밀번호 : " + pwd + " 입금금액 : " + money + " 은행명 : " + bankName);
+            System.out.println("✨ 계좌번호 : " + accountNumber + " 이름 : " + name + ", 비밀번호 : " + pwd + ", 입금금액 : " + money + ", 은행명 : " + bankName);
         } else {
-            System.out.println("✨ 계좌번호(한도제한) : " + accountNumber + " 이름 : " + name + " 비밀번호 : " + pwd + " 입금금액 : " + money + " 은행명 : " + bankName);
+            System.out.println("✨ 계좌번호(한도제한) : " + accountNumber + " 이름 : " + name + ", 비밀번호 : " + pwd + ", 입금금액 : " + money + ", 은행명 : " + bankName);
         }
 
     }
