@@ -118,6 +118,7 @@ public class Menu {
                         System.out.println("잔고가 없습니다.");
                     }
                 } else if (selecteMenu.equals("4")) {
+                    balanceMoney.dealHistories();
                     System.out.println("임시 거래내역");
                     break;
                 } else if (selecteMenu.equals("5")) {
