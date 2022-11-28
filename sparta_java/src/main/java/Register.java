@@ -27,7 +27,7 @@ public class Register {
                 }
 
                 if (countComma == 1 && flag == 0) {
-                    if (CastString.toCharArray()[first] == '1') {
+                    if (CastString.toCharArray()[first] == '*') {
                         String tempaccountNumber = "";
                         for (int i = 0; i < 6; i++) {
                             tempaccountNumber += String.valueOf((int)(Math.random() * 10));
