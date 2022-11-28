@@ -12,7 +12,7 @@ public class Menu {
         if (selectUser.equals("1") || selectUser.equals("1.")) {
 
             while (!isExit) {
-                System.out.println("----------------------------------------");
+                System.out.println("-------------------은행직원 메뉴-------------------");
                 System.out.println("1. 계좌 등록");
                 System.out.println("2. 계좌 수정");
                 System.out.println("3. 계좌 삭제");
@@ -20,15 +20,16 @@ public class Menu {
                 System.out.println("5. 계좌 조회");
                 System.out.println("6. 사용자 유형 선택 메뉴");
                 System.out.println("7. 종료하기");
-                System.out.println("----------------------------------------");
+                System.out.print("→ ");
                 Scanner sc = new Scanner(System.in);
                 String select_num;
                 select_num = sc.nextLine();
                 switch (select_num) {
                     case "1":
                     case "1.": {
-                        System.out.println("✨ 계좌 등록 메뉴입니다. 아래 형식에 맞춰 입력해주세요.");
-                        System.out.print("✨ 계좌번호 또는 *(자동생성), 고객명, 비밀번호, 입금액, 은행명, 한도 여부(예 : 1 아니오 : 0)\n→ ");
+                        System.out.println("-------------------계좌 등록-------------------");
+                        System.out.println("아래 형식에 맞춰 입력해주세요.");
+                        System.out.print("✨ 계좌번호 또는 *(자동생성), 고객명, 비밀번호, 입금액, 은행명, 한도계좌 설정 여부(예 : 1 아니오 : 0)\n→ ");
 
                         Scanner sc2 = new Scanner(System.in);
                         Register reg = new Register();
@@ -38,7 +39,7 @@ public class Menu {
                     }
                     case "2":
                     case "2.": {
-                        System.out.println("✨ 계좌 수정 메뉴입니다.");
+                        System.out.println("-------------------계좌 수정-------------------");
 
                         Revision revision = new Revision();
                         revision.update(bankList);
@@ -46,7 +47,7 @@ public class Menu {
                     }
                     case "3":
                     case "3.": {
-                        System.out.println("✨ 계좌 삭제 메뉴입니다.");
+                        System.out.println("-------------------계좌 삭제-------------------");
 
                         Delete delete = new Delete();
                         delete.delete(bankList);
@@ -54,7 +55,7 @@ public class Menu {
                     }
                     case "4":
                     case "4.": {
-                        System.out.println("✨ 계좌 검색 메뉴입니다.");
+                        System.out.println("-------------------계좌 검색-------------------");
 
                         Search test = new Search();
                         test.search(bankList);
@@ -62,7 +63,7 @@ public class Menu {
                     }
                     case "5":
                     case "5.": {
-                        System.out.println("✨ 계좌 조회 메뉴입니다.");
+                        System.out.println("-------------------계좌 전체조회-------------------");
 
                         Search test = new Search();
                         test.read(bankList);
@@ -74,14 +75,14 @@ public class Menu {
                     }
                     case "7":
                     case "7.": {
-                        System.out.println("✨ 프로그램을 종료합니다.");
+                        System.out.println("✨ 프로그램을 종료합니다. 감사합니다.");
 
                         isExit = true;
 
                         break;
                     }
                     default: {
-                        System.out.println("✨ 메뉴의 숫자를 다시 확인해주세요.");
+                        System.out.println("메뉴의 숫자를 다시 확인해주세요.");
 
                         break;
                     }
@@ -96,7 +97,7 @@ public class Menu {
             BalanceMoney balanceMoney = new BalanceMoney(user);
 
             while (!isExit) {
-                System.out.println("✨ 이용하시려는 메뉴의 숫자를 입력해주세요.");
+                System.out.println("-------------------사용자 메뉴-------------------");
                 System.out.println("1 : 입금");
                 System.out.println("2 : 출금");
                 System.out.println("3 : 잔액 조회");
@@ -119,7 +120,7 @@ public class Menu {
                         try {
                             user.getMoney();
                         } catch (NullPointerException e) {
-                            System.out.println("✨ 잔고가 없습니다.\n");
+                            System.out.println("잔고가 없습니다.\n");
                         }
                         break;
                     case "4":
@@ -132,7 +133,6 @@ public class Menu {
                         isExit = true;
                         break;
                     default:
-                        System.out.println("✨ 숫자를 다시 입력해주세요.\n");
                         break;
 
                 }
