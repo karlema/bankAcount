@@ -24,24 +24,26 @@ public class Revision {
                         String pwd = sc.nextLine();
                         if (bankList.get(i).pwd.equals(pwd)) {
                             System.out.println("\n✨ " + bankList.get(i).name + "님의 계좌 번호는 " + bankList.get(i).accountNumber + "이고 비밀번호는 " + bankList.get(i).pwd + "입니다.");
-//                            System.out.println("\n✨ 계좌번호를 수정하시겠습니까? ---0번---");
+                            System.out.println("\n✨ 한도계좌 설정을 수정하시겠습니까? ---0번---");
                             System.out.println("\n✨ 고객명을 수정하시겠습니까? ---1번---");
                             System.out.println("\n✨ 계좌 비밀번호를 수정하시겠습니까? ---2번---");
                             System.out.println("\n✨ 메뉴로 돌아가시겠습니까? ---3번---");
 
                             String selectNum = sc.nextLine();
                             switch (selectNum) {
-//                                case "0" :
-//                                {
-//                                    System.out.println("\n✨ 변경하실 계좌번호를 입력해주세요.");
-//                                    String updateAccount = sc.nextLine();
-//                                    boolean updateAccountPatten = Pattern.matches(patten,updateAccount);
-//                                    if (updateAccountPatten == true) {
-//                                        bankList.set(i, new Account(updateAccount, bankList.get(i).name, bankList.get(i).pwd, bankList.get(i).money, bankList.get(i).bankName));
-//                                        System.out.println("\n✨ 계좌번호가 변경되었습니다.");
-//                                        break;
-//                                    }
-//                                }
+                                case "0" :
+                                {
+                                    if(bankList.get(i).limit == true) {
+                                        bankList.set(i, new Account(bankList.get(i).accountNumber, bankList.get(i).name, bankList.get(i).pwd, bankList.get(i).money, bankList.get(i).bankName, false));
+                                        System.out.println("\n✨ 한도계좌 -> 일반계좌로 변경되었습니다.");
+                                        break;
+                                    }
+                                    else if(bankList.get(i).limit == false)
+                                        bankList.set(i, new Account(bankList.get(i).accountNumber, bankList.get(i).name, bankList.get(i).pwd, bankList.get(i).money, bankList.get(i).bankName, true));
+                                    System.out.println("\n✨ 일반계좌 -> 한도계좌로 변경되었습니다.");
+                                    break;
+
+                                }
                                 case "1" :
                                     System.out.println("\n✨ 변경하실 고객명을 입력해주세요.");
                                     String updateName = sc.nextLine();
