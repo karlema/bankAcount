@@ -51,7 +51,7 @@ public class Register {
                                     count++;
                                 }
                             }
-                            System.out.println("체크");
+                            System.out.println("ㅊㅊㅊ");
                             System.out.println(accountNumber);
                             first = countTotal;
                             flag = 1;
