@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
     static boolean menu(boolean isExit, List<Account> bankList) {
-        System.out.print("✨ 사용자 유형을 선택해주세요.\n1 : 직원\n2 : 고객\n→ ");
+        System.out.print("✨ 사용자 유형을 선택해주세요.\n1 : 은행직원\n2 : 고객\n→ ");
         Scanner sel = new Scanner(System.in);
         String selectUser;
         selectUser = sel.nextLine();
@@ -18,9 +18,8 @@ public class Menu {
                 System.out.println("3. 계좌 삭제");
                 System.out.println("4. 계좌 검색");
                 System.out.println("5. 계좌 조회");
-                System.out.println("6. 계좌 이체");
-                System.out.println("7. 사용자 유형 선택 메뉴");
-                System.out.println("8. 종료하기");
+                System.out.println("6. 사용자 유형 선택 메뉴");
+                System.out.println("7. 종료하기");
                 System.out.println("----------------------------------------");
                 Scanner sc = new Scanner(System.in);
                 String select_num;
@@ -71,19 +70,14 @@ public class Menu {
                     }
                     case "6":
                     case "6.": {
-                        System.out.println("✨ 계좌 이체 메뉴입니다.");
-
-                        break;
+                        return true;
                     }
                     case "7":
                     case "7.": {
-                        return true;
-                    }
-                    case "8":
-                    case "8.": {
                         System.out.println("✨ 프로그램을 종료합니다.");
 
                         isExit = true;
+
                         break;
                     }
                     default: {
@@ -102,12 +96,13 @@ public class Menu {
             BalanceMoney balanceMoney = new BalanceMoney(user);
 
             while (!isExit) {
-                System.out.print("✨ 이용하시려는 메뉴의 숫자를 입력해주세요.");
+                System.out.println("✨ 이용하시려는 메뉴의 숫자를 입력해주세요.");
                 System.out.println("1 : 입금");
                 System.out.println("2 : 출금");
                 System.out.println("3 : 잔액 조회");
                 System.out.println("4 : 거래내역 조회");
-                System.out.println("5 : 종료");
+                System.out.println("5 : 송금");
+                System.out.println("6 : 종료");
                 System.out.print("→ ");
 
                 String selectMenu;
@@ -131,6 +126,9 @@ public class Menu {
                         balanceMoney.dealHistories();
                         break;
                     case "5":
+                        user.transferMoney(bankList);
+                        break;
+                    case "6":
                         isExit = true;
                         break;
                     default:

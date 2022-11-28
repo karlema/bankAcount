@@ -59,21 +59,21 @@ public class Register {
                         }
                         case 2: {
                             name = CastString.substring(first, countTotal - 1);
-                            System.out.println(name);
+//                            System.out.println(name);
                             first = countTotal;
                             flag = 1;
                             break;
                         }
                         case 3: {
                             pwd = CastString.substring(first, countTotal - 1);
-                            System.out.println(pwd);
+//                            System.out.println(pwd);
                             first = countTotal;
                             flag = 1;
                             break;
                         }
                         case 4: {
                             money = Integer.parseInt(CastString.substring(first, countTotal - 1));
-                            System.out.println(money);
+//                            System.out.println(money);
                             first = countTotal;
                             flag = 1;
                             break;
@@ -82,7 +82,7 @@ public class Register {
 
                             // 콤마 앞
                             bankName = CastString.substring(first, countTotal - 1);
-                            System.out.println(bankName);
+//                            System.out.println(bankName);
                             first = countTotal;
 
                             if (CastString.toCharArray()[first] == '1') {
@@ -92,7 +92,7 @@ public class Register {
                             }
                             // 콤마 뒤
 
-                            System.out.println("✨ 한도 여부 : " + limit + " | 1 : 예 2 : 아니오");
+
 
                             last = 1;
                             flag = 1;
