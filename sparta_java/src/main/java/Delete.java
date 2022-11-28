@@ -13,7 +13,7 @@ public class Delete {
         System.out.println("\n✨ 계좌번호를 입력해주세요.");
         while (!isCheckAccount) {
             String accountNumber = sc.nextLine();
-            String patten = "^(\\d{3,6})-?(\\d{2,6})-?(\\d{6,9})$"; //"([0-9,\-]{3,6}\-[0-9,\-]{2,6}\-[0-9,\-])"
+            String patten = "^(\\d{3,6})-?(\\d{2,6})-?(\\d{6,9})$"; //계좌번호 정규표현식 설정
             boolean accountPatten = Pattern.matches(patten, accountNumber);
             for (int i = 0; i < bankList.size(); i++) {
                 if (bankList.get(i).accountNumber.equals(accountNumber) && accountPatten == true) {
@@ -27,7 +27,6 @@ public class Delete {
                             System.out.println("\n✨ 계좌를 정말 삭제하시겠습니까? ---1번---");
                             System.out.println("\n✨ 메뉴로 돌아가시겠습니까? ---2번---");
 
-//                            String selectNum = sc.nextLine();
                             int selectNum = sc.nextInt();
                             switch (selectNum) {
                                 case 1:
