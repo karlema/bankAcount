@@ -23,11 +23,11 @@ public class Revision {
                     while (!isCheckPwd) {
                         String pwd = sc.nextLine();
                         if (bankList.get(i).pwd.equals(pwd)) {
-                            System.out.println("\n✨ " + bankList.get(i).name + "님의 계좌 번호는 " + bankList.get(i).accountNumber + " 이고 비밀번호는 " + bankList.get(i).pwd + " 입니다.");
-                            System.out.println("\n✨ 0. 일반/한도 계좌 변경 ");
-                            System.out.println("\n✨ 1. 고객명 수정");
-                            System.out.println("\n✨ 2. 비밀번호 수정");
-                            System.out.println("\n✨ 3. 메뉴로 돌아가기");
+                            System.out.println("\n✨ " + bankList.get(i).name + "님의 계좌 번호는 " + bankList.get(i).accountNumber + ", " + bankList.get(i).pwd + " 입니다.");
+                            System.out.println("0. 일반/한도 계좌 변경 ");
+                            System.out.println("1. 고객명 수정");
+                            System.out.println("2. 비밀번호 수정");
+                            System.out.println("3. 메뉴로 돌아가기");
                             System.out.print("→ ");
 
                             String selectNum = sc.nextLine();
@@ -62,14 +62,14 @@ public class Revision {
                             }
                             return;
                         } if (!isCheckPwd) {
-                            System.out.println("\n✨ 비밀번호를 다시 입력해주세요.");
+                            System.out.println("\n비밀번호를 다시 입력해주세요.");
                         }
                     }
                     return;
                 }
             }
             if (!isCheckAccount) {
-                System.out.println("\n✨ 계좌번호를 다시 입력해주세요.");
+                System.out.println("\n계좌번호를 다시 입력해주세요.");
             }
         }
     }

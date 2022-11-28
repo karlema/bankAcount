@@ -19,7 +19,7 @@ public class User {
                 if (bankList.get(i).accountNumber.equals(accountNumber)) {
                     boolean isSuccess = false;
                     isFindAccount = true;
-                    System.out.println("✨ 계좌를 찾았습니다");
+                    System.out.println("계좌를 찾았습니다");
 
                     while (isSuccess != true) {
                         System.out.print("✨ 비밀번호를 입력해주세요.\n→ ");
@@ -29,14 +29,14 @@ public class User {
                             isSuccess = true;
                             myAccount = bankList.get(i);
                         } else {
-                            System.out.println("✨ 비밀번호를 다시 입력해주세요.");
+                            System.out.println("비밀번호를 다시 입력해주세요.");
                         }
                     }
                     return;
                 }
             }
 
-            if (!isFindAccount) System.out.println("✨ 등록되지 않은 계좌입니다.");
+            if (!isFindAccount) System.out.println("등록되지 않은 계좌입니다.");
         }
     }
 
@@ -49,7 +49,7 @@ public class User {
             System.out.print("✨ 받으실 분의 계좌번호를 입력해주세요.\n→ ");
             String accountNumber = sc.nextLine();
             if (accountNumber.equals(myAccount.accountNumber)) {
-                System.out.println("✨ 현재 계좌와 동일한 계좌입니다. 다시 확인해주세요.");
+                System.out.println("현재 계좌와 동일한 계좌입니다. 다시 확인해주세요.");
                 return;
             }
             System.out.print("✨ 보내실 계좌의 은행명을 입력해주세요.\n→ ");
@@ -61,30 +61,49 @@ public class User {
                     String transferMoney = sc.nextLine();
 
                     if (myAccount.limit && Integer.parseInt(transferMoney) > 300000) {
-                        System.out.println("✨ 한도를 초과하는 금액은 송금하실 수 없습니다.");
+                        System.out.println("한도를 초과하는 금액은 송금하실 수 없습니다.");
                         return;
                     }
                     if (myAccount.money > Integer.parseInt(transferMoney)) {
                         System.out.print("✨ 비밀번호를 입력해주세요.\n→ ");
                         String pwd = sc.nextLine();
                         if (myAccount.pwd.equals(pwd)) {
-                            System.out.println("✨ 송금 시 500원의 수수료가 발생합니다.");
-                            System.out.println("\n✨ 1. 송금");
-                            System.out.println("\n✨ 2. 돌아가기");
-                            String selectNum = sc.nextLine();
-                            switch (selectNum) {
-                                case "1":
-                                    myAccount.money = myAccount.money - Integer.parseInt(transferMoney) - 500;
-                                    bankList.get(i).money = bankList.get(i).money + Integer.parseInt(transferMoney);
-                                    System.out.println("✨ 송금이 완료되었습니다. 남은 금액은 " + myAccount.money + "원입니다.");
-                                    break;
-                                case "2":
-                                    break;
+                            if(myAccount.bankName.equals(bankName)){
+                                System.out.println("본인 계좌와 같은 은행이므로 송금 수수료가 없습니다. 송금하시겠습니까?");
+                                System.out.println("1. 송금");
+                                System.out.println("2. 취소");
+                                System.out.print("→ ");
+                                String selectNum = sc.nextLine();
+                                switch (selectNum) {
+                                    case "1":
+                                        myAccount.money = myAccount.money - Integer.parseInt(transferMoney);
+                                        bankList.get(i).money = bankList.get(i).money + Integer.parseInt(transferMoney);
+                                        System.out.println("✨ 송금이 완료되었습니다. 남은 금액은 " + myAccount.money + "원입니다.");
+                                        break;
+                                    case "2":
+                                        break;
+                                }
+                            }else{
+                                System.out.println("타행 계좌로 송금 시 500원의 수수료가 발생합니다. 송금하시겠습니까?");
+                                System.out.println("1. 송금");
+                                System.out.println("2. 취소");
+                                System.out.print("→ ");
+                                String selectNum = sc.nextLine();
+                                switch (selectNum) {
+                                    case "1":
+                                        myAccount.money = myAccount.money - Integer.parseInt(transferMoney) - 500;
+                                        bankList.get(i).money = bankList.get(i).money + Integer.parseInt(transferMoney);
+                                        System.out.println("✨ 송금이 완료되었습니다. 남은 금액은 " + myAccount.money + "원입니다.");
+                                        break;
+                                    case "2":
+                                        break;
+                                }
                             }
+
                         }
                         return;
                     } else {
-                        System.out.println("✨ 잔액이 부족합니다.");
+                        System.out.println("잔액이 부족합니다.");
                     }
                     return;
                 }

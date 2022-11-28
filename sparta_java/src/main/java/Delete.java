@@ -27,8 +27,8 @@ public class Delete {
                         if (bankList.get(i).pwd.equals(pwd)) {
                             System.out.println("✨ " + bankList.get(i).name + "님의 계좌 번호는 " + bankList.get(i).accountNumber + ", 비밀번호는 " + bankList.get(i).pwd + "입니다.");
                             System.out.println("----------------------------------------");
-                            System.out.println("✨ 1. 삭제");
-                            System.out.print("✨ 2. 취소");
+                            System.out.println("1. 삭제");
+                            System.out.print("2. 취소");
 
                             int selectNum = sc.nextInt();
                             switch (selectNum) {
@@ -42,14 +42,14 @@ public class Delete {
                             }
                             return;
                         } if(!isCheckPwd) {
-                            System.out.println("✨ 비밀번호가 올바르지 않습니다. 확인 후 다시 입력해주세요.");
+                            System.out.println("비밀번호가 올바르지 않습니다. 확인 후 다시 입력해주세요.");
                         }
                     }
                     return;
                 }
             }
             if (!isCheckAccount) {
-                System.out.println("✨ 계좌번호가 올바르지 않습니다. 확인 후 다시 입력해주세요.");
+                System.out.println("계좌번호가 올바르지 않습니다. 확인 후 다시 입력해주세요.");
             }
         }
     }
