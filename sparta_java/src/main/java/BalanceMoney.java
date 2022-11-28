@@ -8,15 +8,12 @@ public class BalanceMoney {
     Scanner sc;
     int money;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss");
-    //    String dealDateTime = formatter.format(LocalDateTime.now());
     String dealStatus;
     List<String> dealHistory;
 
     public BalanceMoney(User user) {
         sc = new Scanner(System.in);
         money = user.getMyAccount().money;
-//        formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss");
-//        dealDateTime = formatter.format(LocalDateTime.now());
         dealHistory = new ArrayList<>();
     }
 
@@ -34,10 +31,10 @@ public class BalanceMoney {
         String dealDateTime = formatter.format(LocalDateTime.now());
 
         dealHistory.add("거래 일자 및 시간 : " + dealDateTime);
-        dealHistory.add("계좌 번호 : " + "123-456-789");
+        dealHistory.add("계좌 번호 : " + user.getMyAccount().accountNumber);
         dealHistory.add("거래 종류 : " + dealStatus);
         dealHistory.add("거래 금액 : " + inMoney + "원");
-        dealHistory.add("은행명 : " + "KB");
+        dealHistory.add("은행명 : " + user.getMyAccount().bankName);
 
         System.out.println("---------- 적용 이율은 0.1%입니다. ----------");
         System.out.println("- " + inMoney + "원이 입금되었습니다.");
@@ -67,10 +64,10 @@ public class BalanceMoney {
         String dealDateTime = formatter.format(LocalDateTime.now());
 
         dealHistory.add("거래 일자 및 시간 : " + dealDateTime);
-        dealHistory.add("계좌 번호 : " + "123-456-789");
+        dealHistory.add("계좌 번호 : " + user.getMyAccount().accountNumber);
         dealHistory.add("거래 종류 : " + dealStatus);
         dealHistory.add("거래 금액 : " + outMoney + "원");
-        dealHistory.add("은행명 : " + "KB");
+        dealHistory.add("은행명 : " + user.getMyAccount().bankName);
 
         System.out.println("---------- 수수료 500원이 차감됩니다. ----------");
         System.out.println("- " + outMoney + "원이 출금되었습니다.");
