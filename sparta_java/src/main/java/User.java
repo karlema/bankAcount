@@ -3,9 +3,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class User {
-    private static Account myAccount = null;
+    private Account myAccount = null;
     public User() {}
-    static void login(List<Account> bankList){
+    void login(List<Account> bankList){
         Scanner sc = new Scanner(System.in);
 
         boolean isFindAccount = false;
@@ -24,7 +24,8 @@ public class User {
                         if(bankList.get(i).pwd.equals(pwd)) {
                             System.out.println("✨로그인 성공");
                             isSuccess = true;
-                            User.setMyAccount(bankList.get(i));
+//                            user.setMyAccount(bankList.get(i));
+                            myAccount = bankList.get(i);
                         }else {
                             System.out.println("비밀번호를 다시 입력해주세요.");
                         }
@@ -39,20 +40,23 @@ public class User {
         return;
     }
 
+    static void TransferMoney(){
+        System.out.println();
+    }
 
 
-    static void getMoney(){
+    void getMoney(){
         System.out.println("✨"+ myAccount.name + "님의 남은 잔고는 " + myAccount.money +"원 입니다.");
     }
 
-    public static Account getMyAccount(){
+    public Account getMyAccount(){
         return myAccount;
     }
 
-    public static void setMyAccount(Account account){
+    public void setMyAccount(Account account){
         myAccount = account;
     }
-    public static void setMyAccountMoney(int money){
+    public void setMyAccountMoney(int money){
         myAccount.money = money;
     }
 

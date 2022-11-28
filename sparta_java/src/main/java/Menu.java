@@ -12,6 +12,7 @@ public class Menu {
         if (selectUser.equals("1") || selectUser.equals("1.")) {
             System.out.println("은행직원 입니다.");
             while (!isExit) {
+                System.out.println("------------------------------");
                 System.out.println("1. 계좌 등록");
                 System.out.println("2. 계좌 수정");
                 System.out.println("3. 계좌 삭제");
@@ -27,11 +28,11 @@ public class Menu {
                     case "1":
                     case "1.": {
                         System.out.println("계좌를 등록 하겠습니다. 아래와 같이 입력해 주세요");
-                        System.out.println("계좌번호,이름,비밀번호,입금금액,은행명 순으로 적어주세요");
+                        System.out.println("계좌번호(*번입력시 자동생성),이름,비밀번호,입금금액,은행명,한도계좌여부(1 or 0) 순으로 적어주세요");
                         Scanner sc2 = new Scanner(System.in);
-                        Register reg = new Register(bankList);
+                        Register reg = new Register();
                         reg.CastString = sc2.nextLine();
-                        reg.parceChar();
+                        reg.parceChar(bankList);
                         for (int i = 0; i < bankList.size(); i++) {
                             System.out.println((i + 1) + "번째 계좌번호 : " + bankList.get(i).accountNumber);
                         }
@@ -91,10 +92,15 @@ public class Menu {
             return false;
         } else {
             //로그인
+<<<<<<< HEAD
             User.login(bankList);
 
             BalanceMoney balanceMoney = new BalanceMoney();
 
+=======
+            User user = new User();
+            user.login(bankList);
+>>>>>>> main
             while (!isExit) {
                 System.out.println("해당하는 메뉴의 숫자를 입력해주세요.");
                 System.out.println("1 : 입금");
@@ -103,6 +109,7 @@ public class Menu {
                 System.out.println("4 : 거래내역 조회");
                 System.out.println("5 : 종료");
 
+<<<<<<< HEAD
                 System.out.print("> ");
                 String selectMenu;
                 selectMenu = sel.nextLine();
@@ -131,6 +138,31 @@ public class Menu {
                     default:
                         System.out.println("숫자를 다시 입력해주세요.\n");
                         break;
+=======
+                String selecteMenu;
+                selecteMenu = sel.nextLine();
+
+                BalanceMoney balanceMoney = new BalanceMoney(user);
+
+                if (selecteMenu.equals("1")) {
+//                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
+                    balanceMoney.inMoney(user);
+                } else if (selecteMenu.equals("2")) {
+//                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
+                    balanceMoney.outMoney(user);
+                } else if (selecteMenu.equals("3")) {
+                    try {
+                        user.getMoney();
+                    } catch (NullPointerException e) {
+                        System.out.println("잔고가 없습니다.");
+                    }
+                } else if (selecteMenu.equals("4")) {
+                    balanceMoney.dealHistories();
+                    System.out.println("임시 거래내역");
+                    break;
+                } else if (selecteMenu.equals("5")) {
+                    break;
+>>>>>>> main
                 }
 //                System.out.println("1 : 입금");
 //                System.out.println("2 : 출금");
