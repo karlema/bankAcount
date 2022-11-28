@@ -40,8 +40,20 @@ public class User {
         return;
     }
 
-    static void TransferMoney(){
-        System.out.println();
+    void transferMoney(List<Account> bankList){
+        System.out.println("송금을 시작합니다.");
+        Scanner sc = new Scanner(System.in);
+//        1. 이체할 계좌가 있는지 확인(내 계좌번호인지도 확인)
+        System.out.print("✨이체할 계좌번호를 입력해주세요.\n→");
+        String accountNumber = sc.nextLine();
+        for(int i=0; i<bankList.size(); i++){
+            if(bankList.get(i).accountNumber.equals(accountNumber))
+            System.out.println();
+        }
+//        2. 은행명, 계좌번호, 비밀번호, 입금할 돈
+//        3. (한도 제한계좌) 입금금액 30만원 이상이면 문구노출
+//        4. 이체받은 계좌는 들어오게
+
     }
 
 

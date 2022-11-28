@@ -94,6 +94,8 @@ public class Menu {
             //로그인
             User user = new User();
             user.login(bankList);
+            BalanceMoney balanceMoney = new BalanceMoney(user);
+
             while (!isExit) {
                 System.out.println("1 : 입금");
                 System.out.println("2 : 출금");
@@ -104,7 +106,6 @@ public class Menu {
                 String selecteMenu;
                 selecteMenu = sel.nextLine();
 
-                BalanceMoney balanceMoney = new BalanceMoney(user);
 
                 if (selecteMenu.equals("1")) {
 //                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
@@ -124,6 +125,10 @@ public class Menu {
                     break;
                 } else if (selecteMenu.equals("5")) {
                     break;
+                }
+//                임시 추가(송금)
+                else if (selecteMenu.equals("6")) {
+                    user.transferMoney(bankList);
                 }
             }
             return false;
