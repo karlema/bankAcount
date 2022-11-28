@@ -92,7 +92,8 @@ public class Menu {
             return false;
         } else {
             //로그인
-            User.login(bankList);
+            User user = new User();
+            user.login(bankList);
             while (!isExit) {
                 System.out.println("1 : 입금");
                 System.out.println("2 : 출금");
@@ -103,17 +104,17 @@ public class Menu {
                 String selecteMenu;
                 selecteMenu = sel.nextLine();
 
-                BalanceMoney balanceMoney = new BalanceMoney();
+                BalanceMoney balanceMoney = new BalanceMoney(user);
 
                 if (selecteMenu.equals("1")) {
 //                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
-                    balanceMoney.inMoney();
+                    balanceMoney.inMoney(user);
                 } else if (selecteMenu.equals("2")) {
 //                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
-                    balanceMoney.outMoney();
+                    balanceMoney.outMoney(user);
                 } else if (selecteMenu.equals("3")) {
                     try {
-                        User.getMoney();
+                        user.getMoney();
                     } catch (NullPointerException e) {
                         System.out.println("잔고가 없습니다.");
                     }
