@@ -13,26 +13,32 @@ public class Account {
         this.pwd = pwd;
         this.money = money;
         this.bankName = bankName;
-        this.limit =limit;
+        this.limit = limit;
     }
-        public String getAccountNumber () {
-            return accountNumber;
-        }
 
-        public String getName () {
-            return name;
-        }
-
-        public String getPwd () {
-            return pwd;
-        }
-
-        public int getMoney () {
-            return money;
-        }
-
-        public String getBankName () {
-            return bankName;
-        }
+    public String getAccountNumber() {
+        return accountNumber;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+
+    public boolean limit() {
+        return limit;
+    }
+}
 
