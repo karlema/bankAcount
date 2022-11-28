@@ -16,46 +16,44 @@ public class Search {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("계좌번호 혹은 소유자명으로 검색해주세요");
+        System.out.print("✨ 계좌번호 또는 고객명으로 검색하실 수 있습니다.\n→ ");
         String select = scanner.nextLine();
         String confirm = select;
 
 
         for (int i = 0; i < bankList.size(); i++) {
             if(bankList.get(i).accountNumber.contains(select)) {
-                System.out.println("--------------------------------");
-                System.out.println("계좌 번호 : " + bankList.get(i).getAccountNumber());
-                System.out.println("소유자 명 : " + bankList.get(i).getName());
+                System.out.println("----------------------------------------");
+                System.out.println("계좌번호 : " + bankList.get(i).getAccountNumber());
+                System.out.println("고객명 : " + bankList.get(i).getName());
                 System.out.println("잔고 : " + bankList.get(i).getMoney());
-                System.out.println("한도계좌: " + bankList.get(i).limit());
-                System.out.println("--------------------------------");
-                System.out.println("");
+                System.out.println("한도계좌 : " + bankList.get(i).limit());
+                System.out.println("----------------------------------------\n");
             }
         }
 
         for (int i = 0; i < bankList.size(); i++) {
             if(bankList.get(i).name.contains(select)) {
                 System.out.println("--------------------------------");
-                System.out.println("계좌 번호 : " + bankList.get(i).getAccountNumber());
-                System.out.println("소유자 명 : " + bankList.get(i).getName());
+                System.out.println("계좌번호 : " + bankList.get(i).getAccountNumber());
+                System.out.println("고객명 : " + bankList.get(i).getName());
                 System.out.println("잔고 : " + bankList.get(i).getMoney());
-                System.out.println("한도계좌: " + bankList.get(i).limit());
-                System.out.println("--------------------------------");
-                System.out.println("");
+                System.out.println("한도계좌 : " + bankList.get(i).limit());
+                System.out.println("--------------------------------\n");
             }
         }
     }
 
     public void read(List<Account> bankList){
 
-        System.out.println("계좌 번호와 소유자명을 출력합니다.\n");
+        System.out.println("✨ 저장된 계좌번호와 고객명을 모두 출력합니다.\n");
         // 모두 출력
         for (int i = 0; i < bankList.size(); i++) {
-            System.out.println("---------- " + (i + 1) + "번 메모" + " ----------");
-            System.out.println("계좌 번호 : " + bankList.get(i).getAccountNumber());
-            System.out.println("소유자 명 : " + bankList.get(i).getName());
+            System.out.println("---------- " + (i + 1) + "번" + " ----------");
+            System.out.println("계좌번호 : " + bankList.get(i).getAccountNumber());
+            System.out.println("고객명 : " + bankList.get(i).getName());
             System.out.println("잔고 : " + bankList.get(i).getMoney());
-            System.out.println("한도계좌: " + bankList.get(i).limit());
+            System.out.println("한도계좌 : " + bankList.get(i).limit());
         }
         System.out.println("---------- 출력 완료 ----------\n");
     }

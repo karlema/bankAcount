@@ -4,71 +4,75 @@ import java.util.Scanner;
 
 public class Menu {
     static boolean menu(boolean isExit, List<Account> bankList) {
-        System.out.println("사용자인지 은행직원인지 선택해주세요. 1. 은행직원, 2. 사용자");
+        System.out.print("✨ 사용자 유형을 선택해주세요.\n1 : 직원\n2 : 고객\n→ ");
         Scanner sel = new Scanner(System.in);
         String selectUser;
         selectUser = sel.nextLine();
 
         if (selectUser.equals("1") || selectUser.equals("1.")) {
-            System.out.println("은행직원 입니다.");
+
             while (!isExit) {
-                System.out.println("------------------------------");
+                System.out.println("----------------------------------------");
                 System.out.println("1. 계좌 등록");
                 System.out.println("2. 계좌 수정");
                 System.out.println("3. 계좌 삭제");
-                System.out.println("4. 계좌번호 검색");
-                System.out.println("5. 계좌 전체조회");
+                System.out.println("4. 계좌 검색");
+                System.out.println("5. 계좌 조회");
                 System.out.println("6. 계좌 이체");
-                System.out.println("7. 처음으로");
-                System.out.println("8. 종료");
+                System.out.println("7. 사용자 유형 선택 메뉴");
+                System.out.println("8. 종료하기");
+                System.out.println("----------------------------------------");
                 Scanner sc = new Scanner(System.in);
                 String select_num;
                 select_num = sc.nextLine();
                 switch (select_num) {
                     case "1":
                     case "1.": {
-                        System.out.println("계좌를 등록 하겠습니다. 아래와 같이 입력해 주세요");
-                        System.out.println("계좌번호(*번입력시 자동생성),이름,비밀번호,입금금액,은행명,한도계좌여부(1 or 0) 순으로 적어주세요");
+                        System.out.println("✨ 계좌 등록 메뉴입니다. 아래 형식에 맞춰 입력해주세요.");
+                        System.out.print("✨ 계좌번호 또는 *(자동생성), 고객명, 비밀번호, 입금액, 은행명, 한도 여부(예 : 1 아니오 : 0)\n→ ");
+
                         Scanner sc2 = new Scanner(System.in);
                         Register reg = new Register();
                         reg.CastString = sc2.nextLine();
                         reg.parceChar(bankList);
-                        for (int i = 0; i < bankList.size(); i++) {
-                            System.out.println((i + 1) + "번째 계좌번호 : " + bankList.get(i).accountNumber);
-                        }
                         break;
                     }
                     case "2":
                     case "2.": {
-                        System.out.println("계좌를 수정 하겠습니다. 아래와 같이 입력해 주세요");
+                        System.out.println("✨ 계좌 수정 메뉴입니다.");
+
                         Revision revision = new Revision();
                         revision.update(bankList);
                         break;
                     }
                     case "3":
                     case "3.": {
-                        System.out.println("계좌를 삭제 하겠습니다. 아래와 같이 입력해 주세요");
+                        System.out.println("✨ 계좌 삭제 메뉴입니다.");
+
                         Delete delete = new Delete();
                         delete.delete(bankList);
                         break;
                     }
                     case "4":
                     case "4.": {
-                        System.out.println("계좌번호 검색 하겠습니다. 아래와 같이 입력해 주세요");
+                        System.out.println("✨ 계좌 검색 메뉴입니다.");
+
                         Search test = new Search();
                         test.search(bankList);
                         break;
                     }
                     case "5":
                     case "5.": {
-                        System.out.println("계좌 전체조회 하겠습니다. 아래와 같이 입력해 주세요");
+                        System.out.println("✨ 계좌 조회 메뉴입니다.");
+
                         Search test = new Search();
                         test.read(bankList);
                         break;
                     }
                     case "6":
                     case "6.": {
-                        System.out.println("계좌 이체 하겠습니다. 아래와 같이 입력해 주세요");
+                        System.out.println("✨ 계좌 이체 메뉴입니다.");
+
                         break;
                     }
                     case "7":
@@ -77,12 +81,14 @@ public class Menu {
                     }
                     case "8":
                     case "8.": {
-                        System.out.println("종료합니다");
+                        System.out.println("✨ 프로그램을 종료합니다.");
+
                         isExit = true;
                         break;
                     }
                     default: {
-                        System.out.println("숫자를 다시 확인해주세요.");
+                        System.out.println("✨ 메뉴의 숫자를 다시 확인해주세요.");
+
                         break;
                     }
 
@@ -91,20 +97,19 @@ public class Menu {
             }
             return false;
         } else {
-            //로그인
             User user = new User();
             user.login(bankList);
             BalanceMoney balanceMoney = new BalanceMoney(user);
 
             while (!isExit) {
-                System.out.println("해당하는 메뉴의 숫자를 입력해주세요.");
+                System.out.print("✨ 이용하시려는 메뉴의 숫자를 입력해주세요.");
                 System.out.println("1 : 입금");
                 System.out.println("2 : 출금");
-                System.out.println("3 : 잔고 확인");
+                System.out.println("3 : 잔액 조회");
                 System.out.println("4 : 거래내역 조회");
                 System.out.println("5 : 종료");
+                System.out.print("→ ");
 
-                System.out.print("> ");
                 String selectMenu;
                 selectMenu = sel.nextLine();
 
@@ -119,51 +124,20 @@ public class Menu {
                         try {
                             user.getMoney();
                         } catch (NullPointerException e) {
-                            System.out.println("잔고가 없습니다.\n");
+                            System.out.println("✨ 잔고가 없습니다.\n");
                         }
                         break;
                     case "4":
                         balanceMoney.dealHistories();
                         break;
                     case "5":
-                        System.out.println("이용해주셔서 감사합니다.");
                         isExit = true;
                         break;
                     default:
-                        System.out.println("숫자를 다시 입력해주세요.\n");
+                        System.out.println("✨ 숫자를 다시 입력해주세요.\n");
                         break;
 
                 }
-//                System.out.println("1 : 입금");
-//                System.out.println("2 : 출금");
-//                System.out.println("3 : 잔고확인");
-//                System.out.println("4 : 거래내역");
-//                System.out.println("5 : 종료");
-//
-//                String selecteMenu;
-//                selecteMenu = sel.nextLine();
-//
-//                BalanceMoney balanceMoney = new BalanceMoney();
-//
-//                if (selecteMenu.equals("1")) {
-////                    System.out.println("입금 하겠습니다. 아래와 같이 입력해 주세요");
-//                    balanceMoney.inMoney();
-//                } else if (selecteMenu.equals("2")) {
-////                    System.out.println("출금 하겠습니다. 아래와 같이 입력해 주세요");
-//                    balanceMoney.outMoney();
-//                } else if (selecteMenu.equals("3")) {
-//                    try {
-//                        User.getMoney();
-//                    } catch (NullPointerException e) {
-//                        System.out.println("잔고가 없습니다.");
-//                    }
-//                } else if (selecteMenu.equals("4")) {
-//                    balanceMoney.dealHistories();
-//                    System.out.println("임시 거래내역");
-//                    break;
-//                } else if (selecteMenu.equals("5")) {
-//                    break;
-//                }
             }
             return false;
         }

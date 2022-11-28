@@ -38,21 +38,21 @@ public class Register {
                                 String pattern = "^(\\d{3,6})-?(\\d{2,6})-?(\\d{6,9})$";
                                 boolean accountPattern = Pattern.matches(pattern, accountNumber);
                                 if (!accountPattern) {
-                                    System.out.println("계좌번호 형식이 맞지 않습니다.");
-                                    System.out.println("(3~6자리 숫자)-(2~6자리 숫자)-(6~9자리 숫자) 형식으로 입력해주세요");
+                                    System.out.println("✨ 형식에 맞지 않는 계좌번호입니다.");
+                                    System.out.println("✨ (3~6자리 숫자)-(2~6자리 숫자)-(6~9자리 숫자) 형식으로 입력해주세요");
                                     return;
                                 }
                                 int count = 0;
                                 for (Account acnt : bankList) {
                                     if (accountNumber.equals(bankList.get(count).accountNumber)) {
-                                        System.out.println("동일한 계좌번호가 있습니다. 처음 메뉴로 돌아가겠습니다.");
+                                        System.out.println("✨ 동일한 계좌번호가 있습니다.");
                                         return;
                                     }
                                     count++;
                                 }
                             }
-                            System.out.println("체크");
-                            System.out.println(accountNumber);
+                            System.out.println("✨ 새로 등록된 계좌의 번호는 " + accountNumber + " 입니다.");
+
                             first = countTotal;
                             flag = 1;
                             break;
@@ -92,7 +92,8 @@ public class Register {
                             }
                             // 콤마 뒤
 
-                            System.out.println("limit : " + limit);
+                            System.out.println("✨ 한도 여부 : " + limit + " | 1 : 예 2 : 아니오");
+
                             last = 1;
                             flag = 1;
                             break;
@@ -107,16 +108,16 @@ public class Register {
 
                 if (last == 1) break;
             } catch (Exception e) {
-                System.out.println("입력 방법이 틀렸습니다. 처음 메뉴로 돌아가겠습니다.");
+                System.out.println("✨ 잘못된 입력입니다.");
                 return;
             }
         }
         Account ac = new Account(accountNumber, name, pwd, money, bankName, limit);
         bankList.add(ac);
         if (!limit) {
-            System.out.println("계좌번호 : " + accountNumber + " 이름 : " + name + " 비밀번호 : " + pwd + " 입금금액 : " + money + " 은행명 : " + bankName);
+            System.out.println("✨ 계좌번호 : " + accountNumber + " 이름 : " + name + " 비밀번호 : " + pwd + " 입금금액 : " + money + " 은행명 : " + bankName);
         } else {
-            System.out.println("(한도제한) 계좌번호 : " + accountNumber + " 이름 : " + name + " 비밀번호 : " + pwd + " 입금금액 : " + money + " 은행명 : " + bankName);
+            System.out.println("✨ 계좌번호(한도제한) : " + accountNumber + " 이름 : " + name + " 비밀번호 : " + pwd + " 입금금액 : " + money + " 은행명 : " + bankName);
         }
 
     }
