@@ -32,3 +32,7 @@
  
  ***
  시연 영상 링크
+ - https://drive.google.com/file/d/1mB_sT_SEoahQGC3YiFRfZ8JJ8TLS1oG3/view?usp=sharing
+ 
+ 노션 주소
+ - https://bronze-secure-135.notion.site/B-6-Hot-Six-c28804ae4da74becb5172424d107aba9
